@@ -1,5 +1,5 @@
 import React from 'react'
-import hakanÖztürk from '../assets/images/gmmessage/Hakan Öztürk.png'
+import hakanÖztürk from '../assets/images/gmmessage/Hakan.png'
 import Banner from '../components/banner/Banner'
 import '../components/GMmessage/gmMessage.css'
 import BannerImage from '../assets/images/banner/brief-intro.png'
