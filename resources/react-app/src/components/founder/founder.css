@@ -1,0 +1,181 @@
+.founder-card-container {
+  padding: 50px 0px;
+}
+
+.signature-image {
+  width: 100%;
+  height: auto;
+}
+
+.founder-card {
+  height: 800px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.our-founder {
+  width: 85%;
+}
+
+.founder-image {
+  width: 100%;
+}
+
+.our-founder-title {
+  font-weight: bold;
+  margin-bottom: 3%;
+}
+
+.our-founder-text {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 4%;
+}
+
+.founder-card-left {
+  display: flex;
+  justify-content: center;
+  align-items: justify;
+  flex-direction: column;
+  position: relative;
+}
+
+.founder-card-right-policy .bilkent-card-inner h3 {
+  color: white;
+}
+
+.founder-card-right-policy .bilkent-card-inner button {
+  color: white !important;
+}
+
+.founder-card-right-information-service .bilkent-card-inner h3 {
+  color: black !important;
+}
+
+.founder-card-right-information-service .bilkent-card-inner button {
+  color: black !important;
+  border: 1.6px solid black !important;
+}
+
+.bilkent-card-inner {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.bilkent-card-inner img {
+  width: 20%;
+}
+.founder-card-right {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  margin: 50px 0px 50px 15px;
+}
+
+.founder-card-left-button {
+  background-color: #ffffff00;
+  border-radius: 30px;
+  border: 1.6px solid white;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 5px 20px;
+  margin-top: 30px;
+}
+
+.founder-card-left-button:hover {
+  box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1);
+}
+
+.founder-card-right-policy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.founder-card-right-information-service {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.founder-right-button {
+  margin-top: 15px;
+  width: 26%;
+  height: 12%;
+  background-color: #ffffff00;
+  border-radius: 30px;
+  border: 1.9px solid white;
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.founder-right-button:hover {
+  box-shadow: 1px 4px 10px rgb(0 0 0 / 40%);
+  transform: scale(1);
+}
+
+.founder-right-button-policy {
+  margin-top: 15px;
+  width: 26%;
+  height: 12%;
+  background-color: #ffffff00;
+  border-radius: 30px;
+  border: 1.9px solid black;
+  color: black;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.founder-right-button-policy:hover {
+  box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1);
+}
+
+@media only screen and (min-width: 991px) and (max-width: 1440px) {
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+}
+
+@media only screen and (min-width: 500px) and (max-width: 768px) {
+}
+
+@media only screen and (min-width: 300px) and (max-width: 500px) {
+  .bilkent-card-inner {
+    align-items: center;
+  }
+  .bilkent-card-inner h3 {
+    font-size: 17px;
+  }
+  .founder-card-left .bilkent-card-inner img {
+    width: 80px;
+  }
+  .our-founder-text {
+    font-size: 14px;
+  }
+
+  .founder-card-left-button {
+    font-size: 15px;
+    margin-top: 8px;
+  }
+
+  .founder-card-left {
+    margin-bottom: 20px;
+  }
+
+  .founder-card-right-policy {
+    margin-bottom: 20px;
+  }
+}

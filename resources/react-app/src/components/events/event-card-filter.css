@@ -1,0 +1,21 @@
+.event-card {
+    position: relative;
+}
+
+.event-card_inner {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+}
+
+.event-card_time svg {
+    font-size: 45px;
+    color: white;
+}
+
+.event-card_time span {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+

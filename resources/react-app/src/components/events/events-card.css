@@ -1,0 +1,94 @@
+.event-card {
+    position: relative;
+}
+
+.event-card_inner {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+}
+
+.event-card_time svg {
+    font-size: 45px;
+    color: white;
+}
+
+.event-card_time span {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.filter-container {
+
+    background-color: gray;
+    text-align: center;
+}
+
+.filter-container_list li {
+    display: inline-block;
+    padding: 10px 40px;
+}
+
+
+.inner_title{
+    font-size: 50px;
+    font-weight: 800;
+
+}
+
+.inner_title_in{
+    font-size: 35px;
+    font-weight: 800;
+
+}
+
+.content{
+    text-align: center;
+    margin-bottom: 15px;}
+.content span{
+    font-size: medium;
+
+}
+
+.event-card_time svg {
+    font-size: 26px;
+    color: white;
+    margin-right: 7px;
+}
+.inner_title_start {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 7vh;
+    font-weight: 700;
+
+}
+
+
+/* Responsive tasarım  */
+
+@media only screen and (min-width: 540px) and (max-width: 720px) {
+
+    .inner_title{
+        font-size: 90px;
+        font-weight: 800;
+    }
+
+    .inner_title_in{
+        font-size: 45px;
+        font-weight: 800;
+
+    }
+
+
+
+    .inner_title_start {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        height: 15vh;
+        font-weight: 900;
+        font-size: 25px;
+    }
+}

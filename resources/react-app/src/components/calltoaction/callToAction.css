@@ -1,0 +1,518 @@
+.action-card {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../../assets/images/calltoaction/bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.action-card_inner {
+  position: absolute;
+  background-color: #0080c8e6;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+}
+
+.action-cart_inner-form {
+  width: 50%;
+}
+
+.action-card_inner h1 {
+  font-size: 66px;
+  font-weight: 900;
+  color: black;
+}
+
+.form-container {
+  margin-top: 50px;
+}
+
+.form-list {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+.input-chose {
+  outline: 1px solid red;
+}
+.form-list input {
+  background-color: #0080c8;
+}
+
+.form-list input::placeholder {
+  color: white;
+}
+
+.form-list select {
+  background-color: #0080c8;
+  color: white;
+}
+
+.form-list select {
+  color: white;
+}
+input:-internal-autofill-selected {
+  background-image: none !important;
+  background-color: #0080c8 !important;
+  color: black !important;
+}
+.form-list .form-control,
+.form-select {
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.form-element {
+  border-radius: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding: 13px;
+  border-radius: 30px;
+}
+
+.form-input-calltoaction {
+  width: 100%;
+  height: 65px;
+  border-radius: 30px;
+  padding: 10px;
+  border: 1px solid white;
+  color: white;
+  outline: none;
+}
+.form-input-calltoaction:-webkit-autofill,
+.form-input-calltoaction:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+.form-input-calltoaction-side {
+  width: 100%;
+  height: 45px;
+  border-radius: 30px;
+  padding: 10px;
+  border: 1px solid white;
+  color: white;
+  outline: none;
+}
+.form-input-calltoaction-side-error {
+  width: 100%;
+  height: 45px;
+  border-radius: 30px;
+  padding: 10px;
+  border: 1px solid red;
+  color: white;
+  outline: none;
+}
+.form-input-calltoaction-error {
+  width: 100%;
+  height: 65px;
+  border-radius: 30px;
+  padding: 10px;
+  border: 1px solid red;
+  color: white;
+  outline: none;
+}
+.form-text-side {
+  font-size: 14px;
+}
+.form-input-calltoaction-error input {
+  width: 100%;
+  height: 65px;
+  border-radius: 30px;
+  padding: 10px;
+  border: 1px solid red !important;
+}
+.form-input-calltoaction input {
+  background-color: white !important;
+  color: black !important;
+}
+
+.form-input-calltoaction select {
+  background-color: #0080c8 !important;
+  border: 1px solid white;
+}
+.option-box {
+  width: 67px;
+  height: 67px;
+  position: absolute;
+  background-color: white;
+  right: 11px;
+  top: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.option-box-side {
+  color: black;
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  background-color: white;
+  right: 11px;
+  top: 0px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option-box svg {
+  font-size: 20px;
+  color: black;
+}
+
+.action-card_title {
+  position: relative;
+  margin-top: 80px;
+}
+
+.action-card_title img {
+  position: absolute;
+  width: 40px;
+  left: 6px;
+  top: -10px;
+}
+
+.form-list .form-text {
+  margin-top: 50px;
+}
+
+.form-list .form-button {
+  margin-top: 25px;
+  border-radius: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+@media only screen and (min-width: 1536px) and (max-height: 960px) {
+  .action-card_inner h1 {
+    font-size: 80px;
+  }
+  .slide-form-text {
+    font-size: 25px;
+    margin-top: 10px !important;
+  }
+  .form-text-side {
+    font-size: 12px;
+  }
+  .form-list .form-button {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .action-cart_inner-form {
+    width: 80%;
+  }
+  .form-input-calltoaction {
+    height: 65px;
+  }
+  .option-box {
+    width: 67px;
+    height: 67px;
+    position: absolute;
+    background-color: white;
+    right: 11px;
+    top: 13px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 1440px) and (max-height: 900px) {
+  .action-card_title {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  .form-input-calltoaction {
+    height: 65px;
+  }
+  .action-card_inner h1 {
+    font-size: 80px;
+  }
+
+  .form-element {
+    border-radius: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .option-box {
+    width: 65px;
+    height: 65px;
+    right: 11px;
+    top: 10px;
+  }
+
+  .action-cart_inner-form {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 1366px) and (max-height: 768px) {
+  .action-card_inner h1 {
+    font-size: 70px;
+  }
+  .navbar-list a {
+    padding: 17px !important;
+  }
+  .form-container {
+    margin-top: 25px;
+  }
+}
+
+@media only screen and (min-width: 1280px) and (max-height: 800px) {
+  .action-card_inner h1 {
+    font-size: 55px;
+  }
+  .option-box {
+    width: 67px;
+    height: 67px;
+    position: absolute;
+    background-color: white;
+    right: 11px;
+    top: 13px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .action-cart_inner-form {
+    width: 77%;
+  }
+  .form-input-calltoaction {
+    height: 65px;
+  }
+  .action-card_title {
+    position: relative;
+    margin-top: 55px;
+  }
+}
+
+@media only screen and (min-width: 1280px) and (max-height: 770px) and (min-height: 730px) {
+  .form-list .form-text {
+    margin-top: 150px;
+  }
+
+  .form-list .form-control,
+  .form-select {
+    padding: 14px;
+    border-radius: 30px;
+  }
+
+  .action-card_inner h1 {
+    font-size: 70px;
+  }
+
+  .form-list .form-button {
+    margin-top: 5px;
+    border-radius: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .form-list .form-text {
+    margin-top: 50px;
+  }
+}
+
+@media only screen and (min-width: 1280px) and (max-height: 700px) {
+  .action-card_inner h1 {
+    font-size: 55px;
+  }
+
+  .action-card_title {
+    position: relative;
+    margin-top: 20px;
+  }
+
+  .form-element {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .action-cart_inner-form {
+    width: 77%;
+  }
+
+  .form-list .form-control,
+  .form-select {
+    padding: 13px;
+    border-radius: 30px;
+  }
+
+  .option-box {
+    width: 55px;
+    height: 55px;
+    right: 12px;
+    top: 3px;
+  }
+
+  .action-card_title {
+    position: relative;
+    margin-top: 20px;
+  }
+
+  .form-container {
+    margin-top: 20px;
+  }
+
+  .form-list .form-button {
+    margin-top: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .form-list .form-text {
+    margin-top: 25px;
+  }
+}
+
+/* For 480 Resolution */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .action-card_inner h1 {
+    font-size: 27px;
+  }
+
+  .action-card_title {
+    margin-top: 45px;
+  }
+
+  .form-container {
+    margin-top: 28px;
+  }
+
+  .action-cart_inner-form {
+    width: 100%;
+  }
+
+  .form-list .form-control,
+  .form-select {
+    padding: 10px;
+    border-radius: 30px;
+  }
+
+  .form-element {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 10px !important;
+  }
+
+  .option-box {
+    width: 65px;
+    height: 65px;
+    right: 11px;
+    top: 1px;
+  }
+
+  .form-list .form-button {
+    width: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+/* For 480 Resolution */
+@media only screen and (min-device-width: 320px) and (max-device-height: 745px) {
+  .action-card_inner h1 {
+    font-size: 27px;
+  }
+  .slide-form-text {
+    font-size: 30px !important;
+  }
+  .form-text-side {
+    font-size: 11px;
+  }
+  .form-input-calltoaction {
+    width: 100%;
+    height: 45px;
+    border-radius: 30px;
+    padding: 10px;
+    border: 1px solid white;
+    color: white;
+    outline: none;
+  }
+  .form-input-calltoaction-error {
+    width: 100%;
+    height: 45px;
+    border-radius: 30px;
+    padding: 10px;
+    border: 1px solid red;
+    color: white;
+    outline: none;
+  }
+  .action-card_title {
+    margin-top: 19px;
+  }
+  .form-text p {
+    font-size: 12px;
+  }
+  .form-container {
+    margin-top: 9px;
+  }
+  .form-input-calltoaction option {
+    width: 50px !important;
+    font-size: 12px;
+  }
+  .form-input-calltoaction-error option {
+    width: 50px !important;
+    font-size: 12px;
+  }
+  .action-cart_inner-form {
+    width: 100%;
+  }
+
+  .form-list .form-control,
+  .form-select {
+    padding: 5px;
+    border-radius: 30px;
+  }
+
+  .form-element {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0px !important;
+  }
+
+  .option-box {
+    width: 45px;
+    height: 45px;
+    right: 13px;
+    top: 10px;
+  }
+
+  .form-list .form-button {
+    width: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .form-list .form-text {
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+  .form-list .form-button {
+    margin-top: 35px;
+  }
+
+  .form-list .form-text {
+    margin-top: 25px;
+  }
+
+  .option-box {
+    right: 11px;
+    top: 0px;
+  }
+
+  .action-card_title {
+    margin-top: 25px;
+  }
+}

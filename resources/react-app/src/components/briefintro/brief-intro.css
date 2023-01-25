@@ -1,0 +1,223 @@
+.brief-intro_text {
+  padding: 70px 0px;
+}
+
+.brief-intro_text p {
+  font-weight: 500;
+}
+
+.brief-intro_images {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(7, 5vw);
+  grid-gap: 15px;
+  padding-bottom: 40px;
+}
+
+.brief-intro_images img:nth-child(1) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brief-intro-card_item:nth-child(1) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 5;
+}
+
+.brief-intro-card_item:nth-child(2) {
+  grid-column-start: 3;
+  grid-column-end: 9;
+  grid-row-start: 1;
+  grid-row-end: 5;
+}
+
+.brief-intro-card_item:nth-child(3) {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 5;
+  grid-row-end: 8;
+}
+
+.brief-intro-card_item:nth-child(4) {
+  grid-column-start: 4;
+  grid-column-end: 6;
+  grid-row-start: 5;
+  grid-row-end: 8;
+}
+
+.brief-intro-card_item:nth-child(5) {
+  grid-column-start: 6;
+  grid-column-end: 9;
+  grid-row-start: 5;
+  grid-row-end: 8;
+}
+
+.brief-intro-card_item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brief-intro-card_item img:nth-child(2) {
+  position: absolute;
+}
+
+.brief-intro-card_text {
+  position: absolute;
+  width: 80%;
+}
+
+.brief-intro-card_text p {
+  color: white;
+}
+
+.brief-intro-card_text p:nth-child(1) {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.brief-intro-card_text p:nth-child(2) {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* For 1366 Resolution */
+@media only screen and (min-width: 1030px) and (max-width: 1366px) {
+  .brief-intro-card_item:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 6;
+  }
+
+  .brief-intro-card_item:nth-child(2) {
+    grid-column-start: 4;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 6;
+  }
+
+  .brief-intro-card_item:nth-child(3) {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 6;
+    grid-row-end: 9;
+  }
+
+  .brief-intro-card_item:nth-child(4) {
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 6;
+    grid-row-end: 9;
+  }
+
+  .brief-intro-card_item:nth-child(5) {
+    grid-column-start: 7;
+    grid-column-end: 9;
+    grid-row-start: 6;
+    grid-row-end: 9;
+  }
+
+  .brief-intro-card_item:nth-child(5) img:nth-child(2) {
+    width: 250px;
+    height: auto;
+  }
+}
+
+/* For 480 Resolution */
+@media only screen and (min-width: 700px) and (max-width: 1029px) {
+  .brief-intro-card_text p {
+    font-size: 11px !important;
+  }
+  .dream-move-on-img {
+    width: 65%;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 700px) {
+  .brief-intro-card_item:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 9;
+  }
+
+  .brief-intro-card_item:nth-child(2) {
+    grid-column-start: 1;
+    grid-column-end: 9;
+    grid-row-start: 9;
+    grid-row-end: 36;
+  }
+
+  .brief-intro-card_item:nth-child(3) {
+    grid-column-start: 1;
+    grid-column-end: 9;
+    grid-row-start: 36;
+    grid-row-end: 36;
+  }
+
+  .brief-intro-card_item:nth-child(4) {
+    grid-column-start: 1;
+    grid-column-end: 9;
+    grid-row-start: 37;
+    grid-row-end: 37;
+  }
+
+  .brief-intro-card_item:nth-child(5) {
+    grid-column-start: 1;
+    grid-column-end: 9;
+    grid-row-start: 38;
+    grid-row-end: 38;
+  }
+
+  .brief-intro-card_item:nth-child(5) img:nth-child(2) {
+    width: 250px;
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .brief-intro-card_item:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 9;
+  }
+
+  .brief-intro-card_item:nth-child(2) {
+    grid-column-start: 1;
+    grid-column-end: 9;
+    grid-row-start: 9;
+    grid-row-end: 36;
+  }
+
+  .brief-intro-card_item:nth-child(3) {
+    grid-column-start: 1;
+    grid-column-end: 9;
+    grid-row-start: 36;
+    grid-row-end: 36;
+  }
+
+  .brief-intro-card_item:nth-child(4) {
+    grid-column-start: 1;
+    grid-column-end: 9;
+    grid-row-start: 37;
+    grid-row-end: 37;
+  }
+
+  .brief-intro-card_item:nth-child(5) {
+    grid-column-start: 1;
+    grid-column-end: 9;
+    grid-row-start: 38;
+    grid-row-end: 38;
+  }
+
+  .brief-intro-card_item:nth-child(5) img:nth-child(2) {
+    width: 250px;
+    height: auto;
+  }
+}

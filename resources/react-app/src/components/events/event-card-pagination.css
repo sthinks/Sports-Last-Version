@@ -1,0 +1,30 @@
+.pagination-list{
+
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    color: #c0c0c0;
+    width: 20%;
+    padding: 0px !important;
+    border-top: 3px solid black;
+}
+.page-item{
+
+    padding: 0 27px;
+}
+
+.page-item:hover{
+    text-decoration: underline;
+    color:blue
+}
+
+/* .line{
+    border-top: ;
+} */
+
+
+.containers-pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

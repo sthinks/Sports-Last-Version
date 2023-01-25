@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 0;
+}
+.row{
+    margin: auto !important;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

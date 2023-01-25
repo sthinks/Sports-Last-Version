@@ -1,0 +1,312 @@
+.contact-header-title {
+  width: 30%;
+  margin-top: 10%;
+}
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact-content {
+  width: 75%;
+}
+.contact-shop-name {
+  position: relative;
+  background-color: #0080c8;
+  color: white;
+  padding: 10px 0px 10px 40px;
+  font-weight: 500;
+  font-size: 19px;
+}
+.contact-shop-name-active {
+  position: relative;
+  background-color: black;
+  color: white;
+  padding: 10px 0px 10px 40px;
+  font-weight: 500;
+  font-size: 19px;
+}
+.contact-shop-description {
+  display: block;
+  background-color: #eceff0;
+  margin: 0px -15px 10px -15px;
+}
+.contact-shop-description-close {
+  display: none;
+}
+.shop-address {
+  width: 30%;
+  padding: 30px 0px 30px 30px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.shop-phone-number {
+  width: 30%;
+  padding: 30px 0px 30px 30px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.shop-map-button {
+  padding: 20px 20px 20px 0px;
+}
+.shop-map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+.map-button {
+  border: 0;
+  width: 100px;
+  height: 45px;
+  border-radius: 30px;
+  font-weight: 500;
+  color: white;
+  background-color: #0080c8;
+}
+.contact-shop-name-icon {
+  position: absolute;
+  top: 5px;
+  right: 25px;
+  font-size: 25px;
+  cursor: pointer;
+}
+.form-control-lg {
+  border-radius: 2.5rem !important;
+  font-size: 15px;
+  color: gray;
+  height: 50px;
+}
+.form-select-lg {
+  border-radius: 2.5rem !important;
+  font-size: 15px;
+  color: gray;
+  height: 50px;
+}
+.contact-left-side {
+  background-image: url('../../assets/images/contact/sol_bg.png');
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0080c8;
+  width: 90%;
+  margin: 0px 40px 30px 0px;
+  height: 350px;
+}
+.contact-footer-phone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 90px;
+  font-weight: bold;
+  text-shadow: 5px 5px #ffffff38;
+}
+.contact-footer-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: -14px;
+  margin-top: -30px;
+}
+.contact-right-side {
+  align-items: center;
+  height: 350px;
+  margin: 0px 0px 30px 0px;
+  width: 90%;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-size: 35px;
+  font-weight: bold;
+}
+.form-submit-button {
+  margin-top: 35px;
+  margin-bottom: 90px;
+  font-size: 16px;
+  width: 180px;
+  height: 50px;
+  border: 0;
+  border-radius: 30px;
+  color: white;
+  background-color: black;
+}
+.contact-form-title {
+  font-size: 55px;
+  font-weight: bold;
+}
+.form-submit-button:hover {
+  box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1);
+}
+.accordion {
+  --bs-accordion-color: #000000f0;
+  --bs-accordion-bg: #fff0;
+  --bs-accordion-transition: color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+  --bs-accordion-border-color: #dee2e600;
+  --bs-accordion-border-width: 0px;
+  --bs-accordion-border-radius: 0rem;
+  --bs-accordion-inner-border-radius: calc(0.375rem - 1px);
+  --bs-accordion-btn-padding-x: 4.25rem;
+  --bs-accordion-btn-padding-y: 10px;
+  --bs-accordion-btn-color: #ffffff;
+  --bs-accordion-btn-bg: #0080c8;
+  --bs-accordion-btn-icon: url('../../assets/images/contact/arrow-white.png');
+  --bs-accordion-btn-icon-width: 40px;
+  --bs-accordion-btn-icon-transform: rotate(-180deg);
+  --bs-accordion-btn-icon-transition: transform 0.2s ease-in-out;
+  --bs-accordion-btn-active-icon: url('../../assets/images/contact/arrow-white.png');
+  --bs-accordion-btn-focus-border-color: #ffffff00;
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25remrgba (13, 110, 253, 0.25);
+  --bs-accordion-body-padding-x: 2.25rem;
+  --bs-accordion-body-padding-y: 0rem;
+  --bs-accordion-active-color: #ffffff;
+  --bs-accordion-active-bg: #000000;
+}
+.accordion-item:first-of-type .accordion-button {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  font-size: 19px;
+  font-weight: 500;
+}
+.accordion-item:last-of-type .accordion-button.collapsed {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  font-size: 19px;
+  font-weight: 500;
+}
+.form-select {
+  background-image: url('../../assets/images/contact/select-input-arrow.png') !important;
+  background-position: right 0px center;
+  background-size: 48px;
+}
+.footer-contact-cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.contact-full-size-input {
+  width: 660px;
+}
+@media only screen and (min-width: 300px) and (max-width: 500px) {
+  .page-banner_title {
+    display: none;
+  }
+  .contact-shop-description {
+    background-color: #eceff0;
+    margin: 0px -30px 10px -30px;
+  }
+  .contact-content {
+    width: 100%;
+  }
+  .contact-header-title {
+    width: 45%;
+  }
+  .accordion {
+    --bs-accordion-btn-padding-x: 35px;
+    --bs-accordion-btn-padding-y: 5px;
+  }
+  .contact-form-title {
+    font-size: 30px;
+  }
+  .accordion-item:first-of-type .accordion-button {
+    font-size: 12px;
+  }
+  .accordion-item:last-of-type .accordion-button.collapsed {
+    font-size: 12px;
+  }
+  .shop-address {
+    width: 90px;
+    padding: 10px 0px 5px 5px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .shop-map {
+    margin-right: 5px;
+    padding: 0px 2px 0px 0px;
+  }
+  .map-button {
+    width: 70px;
+    height: 30px;
+    border-radius: 30px;
+    font-size: 11px;
+  }
+  .footer-contact-cards {
+    flex-direction: column;
+  }
+  .contact-left-side {
+    margin: 0px 0px 10px 0px;
+  }
+  .contact-right-side {
+    text-align: center;
+  }
+  .contact-left-side {
+    height: 250px;
+  }
+  .contact-right-side {
+    height: 250px;
+  }
+  .contact-footer-text {
+    font-size: 15px;
+  }
+  .contact-footer-phone {
+    font-size: 50px;
+  }
+  .shop-phone-number {
+    padding: 30px 0px 30px 0px;
+    font-size: 10px;
+    margin-left: 15px;
+  }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 991px) {
+  .contact-content {
+    width: 100%;
+  }
+  .contact-header-title {
+    width: 45%;
+  }
+  .shop-address {
+    padding: 30px 0px 30px 10px !important;
+    font-size: 12px;
+  }
+  .shop-phone-number {
+    padding: 30px 0px 30px 0px !important;
+    font-size: 12px;
+  }
+  .shop-map {
+    margin-right: 5px;
+    padding: 0px 0px 0px 0px !important;
+    font-size: 12px;
+  }
+  .contact-left-side {
+    height: 250px;
+  }
+  .contact-right-side {
+    height: 250px;
+  }
+  .contact-footer-text {
+    font-size: 15px;
+  }
+  .contact-footer-phone {
+    font-size: 50px;
+  }
+}
+@media only screen and (min-width: 990px) and (max-width: 1200px) {
+  .contact-full-size-input {
+    width: 480px;
+  }
+  .contact-content {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  .contact-full-size-input {
+    width: 570px;
+  }
+}

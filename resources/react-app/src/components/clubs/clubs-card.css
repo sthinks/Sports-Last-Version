@@ -1,0 +1,44 @@
+.cards-container {
+  background: url('../../assets/images/home/background.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.home-card {
+  width: 400px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-card:hover {
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
+}
+
+/* For 480 Resolution */
+@media only screen and (min-width: 400px) and (max-width: 600px) {
+  .cards-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 400px) {
+  .cards-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .home-card {
+    width: 285px;
+  }
+}
