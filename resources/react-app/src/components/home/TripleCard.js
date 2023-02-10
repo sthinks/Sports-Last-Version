@@ -9,6 +9,7 @@ import './triple-card.css'
 
 export const TripleCard = () => {
   const navigate = useNavigate()
+
   const goNavigate = (slug) => {
     document.body.scroll({
       top: 0,

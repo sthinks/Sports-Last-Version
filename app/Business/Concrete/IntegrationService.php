@@ -243,6 +243,7 @@ class IntegrationService implements IntegrationServiceInterface
             'club_id' => $data['club_id'],
             'kvkk' => $data['kvkk'],
             'purpose_id' => 1,
+            'form_type'=>"hemen üye ol"
         ]);
         $club_id = $data['club_id'];
         $db = DB::connection('mysql')->select(
@@ -764,7 +765,7 @@ class IntegrationService implements IntegrationServiceInterface
 
     function registerLongDB($data)
     {
-        $data = ContactForm::Create([
+             ContactForm::Create([
             'fullname' => $data['fullname'],
             'phone' => $data['phone'],
             'email' => $data['email'],
@@ -775,6 +776,7 @@ class IntegrationService implements IntegrationServiceInterface
             'message' => $data['message'],
             'gender' => $data['gender'],
             'kvkk' => true,
+            'form_type'=>"bize ulaşın"
         ]);
     }
 }

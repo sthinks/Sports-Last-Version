@@ -40,7 +40,7 @@ class ContactFormController extends Controller
         $validation = $this->integrationService->validationData($data);
         if ($validation == 'Ok') {
             //db kayıt
-            // $this->integrationService->registerDB($data);
+             $this->integrationService->registerDB($data);
             $customer_fullname = $this->integrationService->splitFullName(
                 $data['fullname']
             );

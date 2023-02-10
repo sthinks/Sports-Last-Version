@@ -14,22 +14,25 @@ class ClubSliderImageController extends Controller
      */
     public function index()
     {
-
-        $data =ClubSliderImage::all();
+        $data = ClubSliderImage::all();
         $data->map(function ($item) {
-           $alotImage=  str_contains($item->image, ",");
-           if($alotImage){
+            $alotImage = str_contains($item->image, ',');
+            if ($alotImage) {
                 $item->image = sprintf(
-                    "%s",
+                    '%s',
                     str_replace('\\\\', '/', $item->image)
                 );
-                $item->image =sprintf("%s", str_replace('club',url('storage/club'),$item->image));
-                $item->image =sprintf("%s", str_replace(",",'',$item->image));
-           }
+                $item->image = sprintf(
+                    '%s',
+                    str_replace('club', url('storage/club'), $item->image)
+                );
+                $item->image = sprintf(
+                    '%s',
+                    str_replace(',', '', $item->image)
+                );
+            }
         });
+
         return response()->json($data);
-
     }
-
-
 }

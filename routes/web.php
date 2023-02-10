@@ -18,6 +18,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get("/test",function(){
+  $db = DB::connection('mysql')->select(
+            "SELECT *  FROM clubs WHERE id=207"
+        );
+     $data=     $clubName = $db[0]->name;
+    return print_r($data);
+    
+});
+
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

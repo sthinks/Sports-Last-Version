@@ -29,6 +29,11 @@
 .dropdown-menu {
   --bs-dropdown-link-active-bg: #0080c8;
 }
+@media only screen and (min-width: 1300px) and (max-width: 1500px) {
+  .navbar-list a {
+    padding: 12px !important;
+  }
+}
 @media only screen and (min-width: 1000px) and (max-width: 1300px) {
   .navbar-list a {
     padding: 16px 7px 13px 7px !important;
@@ -52,5 +57,15 @@
 
   .navbar-mobile-right {
     display: block !important;
+  }
+}
+@media only screen and (min-height: 900px) and (max-width: 1440px) {
+  .navbar-list a {
+    padding: 12px !important;
+  }
+}
+@media only screen and (min-height: 768px) and (max-width: 1366px) {
+  .navbar-list a {
+    padding: 12px !important;
   }
 }

@@ -6,13 +6,10 @@ import Bilkent from '../assets/images/founder/bilkent.png'
 import ServicesBilkent from '../assets/images/founder/services-bilkent.png'
 import CompanyPolicy from '../assets/images/founder/company-policy.png'
 import '../components/founder/founder.css'
-import BannerImage from '../assets/images/banner/brief-intro.png'
-import Banner from '../components/banner/Banner'
 
 function Founder() {
   return (
     <div className="">
-      <Banner image={BannerImage} title="Kurucumuz" bread="Kurucumuz" />
       <div className="container">
         <div className="mt-4 mb-5">
           <h2 className="our-founder-title">Kurucumuz</h2>

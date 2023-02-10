@@ -1,0 +1,7 @@
+.page-link-active {
+  color: #0080c8;
+  text-decoration: underline;
+}
+.pagination-list-none {
+  border-top: none;
+}

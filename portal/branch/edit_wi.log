@@ -1,0 +1,1 @@
+Cannot add or update a child row: a foreign key constraint fails (`sportsin_portal`.`wi_status`, CONSTRAINT `fk_wi_wi_id` FOREIGN KEY (`wi_id`) REFERENCES `wi` (`id`))

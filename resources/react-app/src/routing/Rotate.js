@@ -18,8 +18,6 @@ import { FiChevronUp } from 'react-icons/fi'
 import '../components/ScrollToTop/scrollTop.css'
 import CallToAction from '../components/calltoaction/CallToAction'
 import NotFound from '../components/notfound/NotFound'
-import Loading from '../components/loading/Loading'
-import TopToScroll from '../components/toptoscroll/TopToScroll'
 import Common from '../pages/Common'
 
 function Rotate() {
@@ -52,7 +50,6 @@ function Rotate() {
           <CallToAction menu={true} form={form} setForm={setForm} />
         </div>
       ) : null}
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/kisaca-biz" element={<BriefIntro />} />

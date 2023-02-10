@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import SportsTalkCard from '../components/sportsTalk/sportsCard/SportsTalkCard'
-import BannerImage from '../assets/images/banner/brief-intro.png'
-import Banner from '../components/banner/Banner'
 import '../components/sportsTalk/SportsTalk.css'
 import allService from '../service/services.js'
 import { useService } from '../service/useService.js'
@@ -40,12 +38,7 @@ function SportsTalk() {
   }
   return (
     !isLoading && (
-      <div className="sports-talk-container">
-        <Banner
-          image={BannerImage}
-          title="Sportslu Anlatıyor"
-          bread="Sportslu Anlatıyor"
-        />
+      <div className="sports-talk-container mt-5">
         <div className="sports-talk-content">
           <div className="container">
             <div className="row">

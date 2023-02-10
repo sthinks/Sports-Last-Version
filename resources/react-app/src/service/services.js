@@ -10,8 +10,8 @@ const getByTalks = async (slug) => {
   const result = await axiosInstance.get(`talk/${slug}`)
   return result.data
 }
-const fetchEvents = async (pagination) => {
-  const result = await axiosInstance.get(`events?page=${pagination}`)
+const fetchEvents = async () => {
+  const result = await axiosInstance.get(`events`)
   return result.data
 }
 const getByEventsId = async (id) => {
@@ -52,10 +52,7 @@ const joinUsPhoneValidation = async (data) => {
   const result = await axiosInstance.post('join-us/validate', data)
   return result
 }
-const bilkent = async (clubCode) => {
-  const result = await AxiosClientSchedule.get(`list/${clubCode}`)
-  return result.data
-}
+
 const fetchHomeSlider = async () => {
   const result = await axiosInstance.get('get-slider')
   return result
@@ -65,6 +62,12 @@ const fetchServices = async () => {
   const result = await axiosInstance.get('services')
   return result
 }
+
+const bilkent = async (clubCode) => {
+  const result = await AxiosClientSchedule.get(`list/${clubCode}`)
+  return result.data
+}
+
 const exportFunction = {
   getByTalks,
   fetchTalking,

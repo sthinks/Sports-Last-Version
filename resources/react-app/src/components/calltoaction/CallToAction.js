@@ -24,11 +24,20 @@ function CallToAction({ menu, form, setForm }) {
       kvkk: false,
     },
     validationSchema: Yup.object({
-      fullname: Yup.string().min(5).required(),
-      phone: Yup.string().matches(phoneRegExp),
-      email: Yup.string().email().required(),
-      club_id: Yup.string().required(),
-      kvkk: Yup.boolean().oneOf([true], 'This field must be checked'),
+      fullname: Yup.string()
+        .min(5, 'Ad soyad en az 5 karakter olmalı.')
+        .required('Zorunlu alan.'),
+      phone: Yup.string()
+        .required('Zorunlu alan.')
+        .matches(
+          phoneRegExp,
+          'Lütfen telefon numaranızı istenilen formatta giriniz. Örn: 0530---1515',
+        ),
+      email: Yup.string()
+        .email('Lütfen geçerli bir email adresi giriniz.')
+        .required('Zorunlu alan.'),
+      club_id: Yup.string().required('Zorunlu alan.'),
+      kvkk: Yup.boolean().oneOf([true]).required('Zorunlu alan.'),
     }),
 
     onSubmit: async (values, { resetForm }) => {
@@ -47,7 +56,7 @@ function CallToAction({ menu, form, setForm }) {
         setShowModal(true)
         resetForm()
       } else if (result.data.message === 'telefon kaydı zaten mevcut!') {
-        setDescpriction('Girmiş olduğunuz telefon numarası sistemde mevcut.')
+        setDescpriction('Teşekkürler, formunuz başarıyla gönderilmiştir.')
         setbtnText(true)
         setIsLoading(false)
         setShowModal(true)
@@ -98,6 +107,16 @@ function CallToAction({ menu, form, setForm }) {
                     onBlur={formik.handleBlur}
                     value={formik.values.fullname}
                   />
+                  <div
+                    className="form-error-content"
+                    style={{
+                      color: 'red',
+
+                      marginLeft: '5px',
+                    }}
+                  >
+                    {formik.touched.fullname && formik.errors.fullname}
+                  </div>
                 </div>
                 <div className="form-element col-md-6 col-sm-12 mb-3">
                   <input
@@ -114,6 +133,16 @@ function CallToAction({ menu, form, setForm }) {
                     onBlur={formik.handleBlur}
                     value={formik.values.email}
                   />
+                  <div
+                    className="form-error-content"
+                    style={{
+                      color: 'red',
+
+                      marginLeft: '5px',
+                    }}
+                  >
+                    {formik.touched.email && formik.errors.email}
+                  </div>
                 </div>
                 <div className="form-element col-md-6 col-sm-12 mb-3">
                   <input
@@ -123,7 +152,7 @@ function CallToAction({ menu, form, setForm }) {
                         : 'form-input-calltoaction'
                     }
                     id="phone"
-                    placeholder="0536XXX1919"
+                    placeholder="0500-000-00-00"
                     name="phone"
                     type="text"
                     onChange={formik.handleChange}
@@ -131,7 +160,20 @@ function CallToAction({ menu, form, setForm }) {
                     pattern="[0-9]*"
                     value={formik.values.phone}
                   />
+                  {formik.errors.phone && formik.touched.phone && (
+                    <div
+                      className="form-error-content"
+                      style={{
+                        color: 'red',
+
+                        marginLeft: '5px',
+                      }}
+                    >
+                      {formik.errors.phone}
+                    </div>
+                  )}
                 </div>
+
                 <div
                   className="form-element col-md-6 mb-3"
                   style={{ position: 'relative' }}
@@ -162,6 +204,18 @@ function CallToAction({ menu, form, setForm }) {
                       </option>
                     ))}
                   </select>
+                  <div
+                    className="form-error-content"
+                    style={{
+                      color: 'red',
+
+                      marginLeft: '5px',
+                    }}
+                  >
+                    {formik.touched.club_id &&
+                      formik.errors.club_id &&
+                      'Lütfen kulüp seçiniz.'}
+                  </div>
                 </div>
 
                 <div className="form-text">
@@ -177,7 +231,7 @@ function CallToAction({ menu, form, setForm }) {
                   <div className="d-flex align-items-center">
                     <input
                       className={
-                        formik.touched.club_id && formik.errors.club_id
+                        formik.touched.kvkk && formik.errors.kvkk
                           ? 'input-chose'
                           : ''
                       }
@@ -189,17 +243,7 @@ function CallToAction({ menu, form, setForm }) {
                       onBlur={formik.handleBlur}
                       value={formik.values.kvkk}
                     />
-                    {formik.touched.club_id && formik.errors.club_id && (
-                      <div
-                        style={{
-                          color: 'red',
-                          fontWeight: 'bold',
-                          fontSize: '18px',
-                        }}
-                      >
-                        !!!
-                      </div>
-                    )}
+
                     <p style={{ margin: '0px' }} className="text-white">
                       Tarafıma reklam, pazarlama ve tanıtım içerikli ticari
                       elektronik ileti gönderilmesine muvafakat ediyorum.
@@ -211,7 +255,7 @@ function CallToAction({ menu, form, setForm }) {
                   className="col-md-3 form-button"
                   variant="light"
                 >
-                  {isLoading ? (
+                  {loading ? (
                     <Spinner animation="border" role="status">
                       <span className="visually-hidden">Loading...</span>
                     </Spinner>
@@ -224,7 +268,7 @@ function CallToAction({ menu, form, setForm }) {
           </div>
         </div>
       ) : (
-        <div className="action-card_inner">
+        <div className="action-card_inner action-card_inner-right">
           <div
             className="option-box-close"
             onClick={() => setForm(!form)}
@@ -241,7 +285,10 @@ function CallToAction({ menu, form, setForm }) {
               </div>
             </div>
             <div className="form-container-slide">
-              <form className="form-list row" onSubmit={formik.handleSubmit}>
+              <form
+                className="form-list form-list-right row"
+                onSubmit={formik.handleSubmit}
+              >
                 <div className="form-element-side col-md-12 col-sm-12 mb-3">
                   <input
                     className={
@@ -282,7 +329,7 @@ function CallToAction({ menu, form, setForm }) {
                         : 'form-input-calltoaction-side'
                     }
                     id="phone"
-                    placeholder="Telefon Numaranız"
+                    placeholder="0500-000-00-00"
                     name="phone"
                     type="text"
                     onChange={formik.handleChange}
@@ -336,7 +383,7 @@ function CallToAction({ menu, form, setForm }) {
                   <div className="d-flex align-items-center">
                     <input
                       className={
-                        formik.touched.club_id && formik.errors.club_id
+                        formik.touched.kvkk && formik.errors.kvkk
                           ? 'input-chose'
                           : ''
                       }
@@ -360,7 +407,7 @@ function CallToAction({ menu, form, setForm }) {
                   className="col-md-6 form-button"
                   variant="light"
                 >
-                  {isLoading ? (
+                  {loading ? (
                     <Spinner animation="border" role="status">
                       <span className="visually-hidden">Loading...</span>
                     </Spinner>

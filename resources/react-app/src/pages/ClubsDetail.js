@@ -12,10 +12,9 @@ import Schedule from '../components/schedule/Schedule'
 import { useParams } from 'react-router-dom'
 import { useService } from '../service/useService.js'
 import allService from '../service/services.js'
-import Banner from '../components/banner/Banner'
 import Loading from '../components/loading/Loading'
 import { useNavigate } from 'react-router-dom'
-
+import Banner from '../components/banner/Banner'
 export const ClubsDetail = () => {
   const navigate = useNavigate()
   const [sliderImageArray, setSliderImageArray] = useState([])
@@ -32,7 +31,7 @@ export const ClubsDetail = () => {
     arrow: false,
     dots: false,
     infinite: true,
-    autoplaySpeed: 7000,
+    autoplaySpeed: 3000,
     pauseOnHover: false,
     autoplay: true,
     slidesToShow: x ? (x <= 5 ? x - 1 : 5) : 0,
@@ -72,6 +71,7 @@ export const ClubsDetail = () => {
             </div>
           </div>
         </div>
+
         <div className="clubs-detail_carousel">
           <div className="slide-icon">
             <img
@@ -89,6 +89,7 @@ export const ClubsDetail = () => {
             ))}
           </Slider>
         </div>
+
         <div className="clubs-detail_card-container">
           <div
             className="clubs-detail_card"

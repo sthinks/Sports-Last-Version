@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import CallToAction from '../components/calltoaction/CallToAction'
 import { ClubsCard } from '../components/clubs/ClubsCard'
 import { TripleCard } from '../components/home/TripleCard'
@@ -11,16 +11,20 @@ import { useService } from '../service/useService.js'
 import allService from '../service/services.js'
 
 export const Home = () => {
+  const [form, setForm] = useState(false)
   const { data, isLoading, refetch } = useService('get-slider', () =>
     allService.fetchHomeSlider(),
   )
-  useEffect(() => {
-    console.log(data)
-  }, [data])
 
   return (
     <>
-      <CustomSlider image={data?.data} />
+      <CustomSlider image={data?.data} setMenu={setForm} menu={form} />
+
+      {form ? (
+        <div className="slide-form-container">
+          <CallToAction menu={true} form={form} setForm={setForm} />
+        </div>
+      ) : null}
       <ClubsCard />
       <Schedule marginB={false} />
       <TripleCard />

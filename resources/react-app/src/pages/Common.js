@@ -3,7 +3,7 @@ import { useService } from '../service/useService'
 import allService from '../service/services'
 import { useParams } from 'react-router'
 import Loading from '../components/loading/Loading'
-import Banner from '../components/banner/Banner'
+
 function Common() {
   const slug = useParams()
 
@@ -18,7 +18,6 @@ function Common() {
   return (
     !isLoading && (
       <div>
-        <Banner image={data?.image} bread={data?.title} />
         <div className="container ">
           <div
             style={{ overflow: 'auto' }}

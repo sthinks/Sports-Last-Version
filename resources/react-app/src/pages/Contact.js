@@ -3,8 +3,6 @@ import hereSports from '../assets/images/contact/contact-header.png'
 import AccordionShopList from '../components/contact/shopList/ShopList'
 import ContactForm from '../components/contact/contactForm/ContactForm'
 import '../components/contact/Contact.css'
-import BannerImage from '../assets/images/banner/contact.png'
-import Banner from '../components/banner/Banner'
 import { useService } from '../service/useService'
 import allService from '../service/services'
 
@@ -74,7 +72,6 @@ function Contact() {
 
   return (
     <div className="">
-      <Banner image={BannerImage} title="İletişim" bread="İletişim" />
       <div className="container">
         <div className="contact-container">
           <div className="contact-content">

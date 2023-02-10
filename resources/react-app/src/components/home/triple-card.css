@@ -8,22 +8,23 @@
 
 .triple-item_first {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .triple-item_first img:nth-child(2) {
   width: 70%;
   height: auto;
-  visibility: hidden;
+  visibility: visible;
   position: absolute;
-  bottom: 0%;
-  right: 15%;
   transition: 0.2s ease-in-out;
 }
 
 .triple-item_first:hover img:nth-child(2) {
+  width: 80%;
   visibility: visible;
   transition-delay: 0.2s;
-  bottom: 30%;
 }
 
 .triple-item_second {
@@ -34,22 +35,23 @@
 
 .triple-item_third {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .triple-item_third img:nth-child(2) {
   width: 70%;
   height: auto;
-  visibility: hidden;
+  visibility: visible;
   position: absolute;
-  bottom: 0%;
-  right: 15%;
   transition: 0.2s ease-in-out;
 }
 
 .triple-item_third:hover img:nth-child(2) {
+  width: 80%;
   visibility: visible;
   transition-delay: 0.2s;
-  bottom: 15%;
 }
 
 /* For 480 Resolution */

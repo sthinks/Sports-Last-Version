@@ -5,14 +5,11 @@ import Second from '../assets/images/aboutus/brief-intro/second.png'
 import Third from '../assets/images/aboutus/brief-intro/third.png'
 import MoveOnBg from '../assets/images/aboutus/brief-intro/move-on-bg.png'
 import MoveOnIcon from '../assets/images/aboutus/brief-intro/move-on-icon.png'
-import bannerImg from '../assets/images/banner/brief-intro.png'
 import '../components/briefintro/brief-intro.css'
-import Banner from '../components/banner/Banner'
 
 export const BriefIntro = () => {
   return (
     <div>
-      <Banner title="Kısaca Biz" image={bannerImg} bread="Kısaca Biz" />
       <div className="brief-intro_text">
         <div className="text-center">
           <h4>Sports International Ailesi olarak;</h4>

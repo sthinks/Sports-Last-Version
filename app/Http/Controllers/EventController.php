@@ -18,7 +18,7 @@ class EventController extends Controller
         $data = Event::orderByRaw('id DESC')
             ->whereDate('time', '>=', now())
             ->with('clubs')
-            ->paginate(9);
+            ->get();
         $data->map(function ($item) {
             $item->image = url(
                 sprintf('storage/%s', str_replace('\\', '/', $item->image))
@@ -36,7 +36,7 @@ class EventController extends Controller
         $data = Event::orderByRaw('time DESC')
             ->whereDate('time', '>=', now())
             ->with('clubs')
-            ->paginate(9);
+            ->get();
         $data = $data[0]->clubs->image = url(
             sprintf(
                 'storage/%s',

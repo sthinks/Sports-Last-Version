@@ -6,12 +6,7 @@ import BannerImage from '../assets/images/banner/brief-intro.png'
 
 function GMmessage() {
   return (
-    <div className="gm-message-parent-container">
-      <Banner
-        image={BannerImage}
-        title="Genel Müdür Mesajı"
-        bread="Genel Müdür Mesajı"
-      />
+    <div className="gm-message-parent-container mt-5">
       <div className="mb-5">
         <div className="container">
           <div className="row">
@@ -26,53 +21,47 @@ function GMmessage() {
             </div>
             <div className="col-md-8">
               <div className="gm-message-text">
-                <h5>Consectetur magna</h5>
+                <h5>Değerli Sportslular,</h5>
                 <p>
-                  velit fugiat. Dolor anim dolore ipsum quis aliquip non minim
-                  consequat cillum et veniam voluptate reprehenderit. Labore
-                  cupidatat mollit quis ad enim amet nisi non duis culpa
-                  proident ipsum magna voluptate.
+                  Sports International olarak her biri alanında uzman tüm takım
+                  arkadaşlarımızla birlikte sektöründe lider bir kuruluşuz ve
+                  1994 yılından bu yana sizleri misafir etmekten mutluluk
+                  duyuyoruz.
                 </p>
                 <p>
-                  Ullamco excepteur in culpa proident commodo aliqua irure. Sunt
-                  adipisicing enim ad officia quis aliquip elit officia dolor do
-                  non nulla ut occaecat. Consequat commodo elit reprehenderit
-                  deserunt ea. Ipsum id ea deserunt occaecat sint exercitation.
-                  Non labore amet incididunt magna consectetur anim incididunt
-                  ex nostrud tempor dolor id nostrud.Consectetur magna elit
+                  Üyelerimize, çalışma arkadaşlarımıza, çevreye ve topluma karşı
+                  sorumluluklarımızın bilincinde; teknolojiyi etkili kullanan,
+                  kalitesinden asla ödün vermeyen, ulusal & uluslararası
+                  standartlara uygun hizmetler sunan ve kendini bir yaşam alanı
+                  olarak adlandıran Sports International Ailesi olarak, değerli
+                  üyelerimizin memnuniyetini artırmak için çalışıyoruz.
                 </p>
                 <p>
-                  deserunt occaecat sint exercitation. Non labore amet
-                  incididunt magna consectetur anim incididunt ex nostrud tempor
-                  dolor id nostrud. Consectetur magna elit incididunt consequat
-                  ad eiusmod cupidatat labore laborum enim incididunt voluptate.
-                  Incididunt nostrud commodo officia ullamco magna cillum fugiat
+                  Aynı kalite standardı ve anlayışla yönetilen tüm
+                  tesislerimizde; üyelerimize ve yeni nesillere spor alışkanlığı
+                  kazandırmayı, sağlıklı bir yaşam tarzına sahip olmalarına
+                  yardımcı olmayı amaçlıyor ve bunun yanında insanların iş
+                  dünyası dışında kendilerine vakit ayıracakları, sosyal
+                  hayatlarını geçirebilecekleri güvenli ve hijyenik bir ortam
+                  sağlıyoruz.
                 </p>
                 <p>
-                  deserunt occaecat sint exercitation. Non labore amet
-                  incididunt magna consectetur anim incididunt ex nostrud tempor
-                  dolor id nostrud. Consectetur magna elit incididunt consequat
-                  ad eiusmod cupidatat labore laborum enim incididunt voluptate.
-                  Incididunt nostrud commodo officia ullamco magna cillum fugiat
+                  Tüm faaliyetlerimizi sistematik ve düzenli bir şekilde
+                  değerlendirmek, çalışan eğitim ve gelişim programları ile
+                  desteklemek, hizmet standartlarımızı daha iyiye doğru
+                  yöneltmek; her zaman yolumuza ışık oluyor.
                 </p>
                 <p>
-                  velit fugiat. Dolor anim dolore ipsum quis aliquip non minim
-                  consequat cillum et veniam voluptate reprehenderit. Labore
-                  cupidatat mollit quis ad enim amet nisi non duis culpa
-                  proident ipsum magna voluptate.
+                  Ben de aktif spor yapan biri olarak sporun toplum sağlığına
+                  kattığı değerin artması için biz ve bizim gibi kaliteli,
+                  güvenilir ve saygın kuruluşların artması ve desteklenmesi
+                  gerektiğini düşünüyorum. Bununla ilgili hem tesislerimize hem
+                  de çalışanlarımıza yönelik yatırımlarımızı hiç durmadan
+                  planlıyor ve gerçekleştiriyoruz.
                 </p>
-                <p>
-                  velit fugiat. Dolor anim dolore ipsum quis aliquip non minim
-                  consequat cillum et veniam voluptate reprehenderit. Labore
-                  cupidatat mollit quis ad enim amet nisi non duis culpa
-                  proident ipsum magna voluptate.
-                </p>
-                <p>
-                  deserunt occaecat sint exercitation. Non labore amet
-                  incididunt magna consectetur anim incididunt ex nostrud tempor
-                  dolor id nostrud. Consectetur magna elit incididunt consequat
-                  ad eiusmod cupidatat labore laborum enim incididunt voluptate.
-                  Incididunt nostrud commodo officia ullamco magna cillum fugiat
+                <p>Saygılarımla,</p>
+                <p style={{ color: '#0080c8' }}>
+                  Genel Müdür <br /> Hakan Öztürk
                 </p>
               </div>
             </div>

@@ -1,13 +1,10 @@
 import React from 'react'
 import visionFlag from '../assets/images/visionMission/vision-flags.png'
 import '../components/visionMission/visionMission.css'
-import BannerImage from '../assets/images/banner/brief-intro.png'
-import Banner from '../components/banner/Banner'
 
 function VizionMission() {
   return (
     <div>
-      <Banner image={BannerImage} title="Vizyon Misyon" bread="Vizyon Misyon" />
       <div className="container mt-5 mb-5">
         <div className="row">
           <div className="vision-mission-container d-flex justify-content-center">

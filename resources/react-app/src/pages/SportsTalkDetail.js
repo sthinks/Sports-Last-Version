@@ -22,11 +22,6 @@ function SportsTalkDetail({ navigation }) {
   return (
     !isLoading && (
       <div>
-        <Banner
-          image={data.img_banner}
-          bread={`Sportslu Anlatıyor / ${data.title}`}
-          talks={true}
-        />
         <div className="sports-talk-detail-container">
           <div className="container">
             <div className="row justify-content-center">
@@ -40,16 +35,6 @@ function SportsTalkDetail({ navigation }) {
                     className="mt-3"
                     dangerouslySetInnerHTML={{ __html: data.description }}
                   />
-
-                  <p className="sports-detail-follow">
-                    Sağlıklı bir yaşama kavuşmak ve yılın son fırsatlarını
-                    yakalamk için <br />
-                    Sports International'ı takipte kalın.
-                  </p>
-                  <p className="sports-detail-signature ">
-                    Mersin Sports International Tesis Müdürü <br />
-                    Engin Özgür ŞAHIN
-                  </p>
                 </div>
               </div>
             </div>

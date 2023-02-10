@@ -1,4 +1,5 @@
 .events-modal {
+  width: 600px !important;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -11,6 +12,12 @@
   background-image: none;
   padding: 0px;
   outline: none;
+}
+.events-selected-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #0080c8;
+  padding: 15px;
 }
 .events-modal svg {
   outline: none;
@@ -64,9 +71,19 @@ li a {
 li a:hover {
   color: #218ccb;
 }
+@media only screen and (min-width: 500px) and (max-width: 768px) {
+  .events-modal {
+    width: 90% !important;
+  }
+  .option-box-close_events {
+    right: -10px;
+  }
+}
+
 @media only screen and (min-width: 300px) and (max-width: 500px) {
   .events-modal {
     margin-right: -30%;
+    width: 85% !important;
   }
   .option-box-close_events {
     right: -20px;

@@ -7,17 +7,13 @@ import { useService } from '../../service/useService'
 import allService from '../../service/services'
 import Loading from '../loading/Loading'
 export default function Schedule({ marginB }) {
+  const [data, setData] = useState()
   const [tab, setTab] = useState(1)
   const [list, setList] = useState([])
   const [activePlace, activeSetPlace] = useState(1)
   const [weekIsActive, setWeekIsActive] = useState([])
   const [dataSize, setDataSize] = useState(false)
-  // const { data, isLoading, refetch } = useService(`list/${11191}`, () =>
-  //   allService.bilkent(11191),
-  // )
-  // useEffect(() => {
-  //   console.log(data)
-  // }, [data])
+
   const componentRef = useRef()
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
@@ -42,7 +38,8 @@ export default function Schedule({ marginB }) {
     },
     {
       id: 4,
-      name: 'Mavışehir',
+      name: 'Mavişehir',
+      slug: 11194,
     },
     {
       id: 5,
@@ -474,46 +471,16 @@ export default function Schedule({ marginB }) {
     activeSetPlace(result[0].id)
   }
 
-  // const filterDataHandler = (data) => {
-  //   const newArray = []
-  //   const pazartesi = data?.filter((item) => {
-  //     return item.day === 1
-  //   })
-  //   newArray.push({ pazartesi })
-  //   const salı = data?.filter((item) => {
-  //     return item.day === 2
-  //   })
-  //   newArray.push({ salı })
-  //   const çarşamba = data?.filter((item) => {
-  //     return item.day === 3
-  //   })
-  //   newArray.push({ çarşamba })
-  //   const perşembe = data?.filter((item) => {
-  //     return item.day === 3
-  //   })
-  //   newArray.push({ perşembe })
-  //   const cuma = data?.filter((item) => {
-  //     return item.day === 3
-  //   })
-  //   newArray.push({ cuma })
-  //   const cumartesi = data?.filter((item) => {
-  //     return item.day === 3
-  //   })
-  //   newArray.push({ cumartesi })
-  //   const pazar = data?.filter((item) => {
-  //     return item.day === 3
-  //   })
-  //   newArray.push({ pazar })
-  //   setData(newArray)
-  //   console.log(newArray)
+  //Apiler geldiği zaman çalışacak.
+  // const fetchClubs = async (slug) => {
+  //   const result = await allService.bilkent(slug)
+  //   setData(result)
   // }
 
   useEffect(() => {
     activeList(1)
   }, [])
-  // if (isLoading) {
-  //   return <Loading />
-  // }
+
   return (
     <div
       className={
@@ -540,12 +507,12 @@ export default function Schedule({ marginB }) {
         </div>
         <div className="schedule-table-first-item">
           <div className="schedule">
-            <div className="schedule-lesson-announcement">
+            {/* <div className="schedule-lesson-announcement">
               <div className="lesson-announcment-icon">
                 <BiBell />
               </div>
               <p>Ders duyuruları</p>
-            </div>
+            </div> */}
             <div className="schedule-sports-city-list">
               <ul>
                 {sportsPlace.map((item) => (

@@ -24,21 +24,25 @@ export const ClubsCard = () => {
       <div className="cards-container">
         <div className="container">
           <div className="cards-list">
-            {data?.map((card) => (
-              <Link
-                key={card.id}
-                to={`/kuluplerimiz/${card.slug}`}
-                onClick={() => scrollToTop()}
-              >
-                <div className="home-card">
-                  <img
-                    src={card.image}
-                    alt="Külüp etkinlik resim"
-                    style={{ width: '100%', height: 'auto' }}
-                  />
-                </div>
-              </Link>
-            ))}
+            {data?.map((card) => {
+              return (
+                card.name != 'kampanya' && (
+                  <Link
+                    key={card.id}
+                    to={`/kuluplerimiz/${card.slug}`}
+                    onClick={() => scrollToTop()}
+                  >
+                    <div className="home-card">
+                      <img
+                        src={card.image}
+                        alt="Külüp etkinlik resim"
+                        style={{ width: '100%', height: 'auto' }}
+                      />
+                    </div>
+                  </Link>
+                )
+              )
+            })}
           </div>
         </div>
       </div>
