@@ -19,7 +19,6 @@ export const Home = () => {
   return (
     <>
       <CustomSlider image={data?.data} setMenu={setForm} menu={form} />
-
       {form ? (
         <div className="slide-form-container">
           <CallToAction menu={true} form={form} setForm={setForm} />

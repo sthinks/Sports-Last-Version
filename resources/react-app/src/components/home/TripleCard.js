@@ -45,22 +45,24 @@ export const TripleCard = () => {
           </div>
         </div>
         <div className="col-md-4">
-          <div
-            className="triple-item_third"
-            style={{ cursor: 'pointer' }}
-            onClick={() => goNavigate('/hizmetlerimiz')}
-          >
-            <img
-              src={ThirdItem}
-              style={{ width: '100%', height: 'auto' }}
-              alt="Sportsinternational"
-            />
-            <img
-              src={ThirdItemIcon}
-              className="triple-item_third-image"
-              alt="Sportsinternational"
-            />
-          </div>
+          <a href='/sports-club-avantajları'>
+            <div
+              className="triple-item_third"
+              style={{ cursor: 'pointer' }}
+              onClick={() => goNavigate('/hizmetlerimiz')}
+            >
+              <img
+                src={ThirdItem}
+                style={{ width: '100%', height: 'auto' }}
+                alt="Sportsinternational"
+              />
+              <img
+                src={ThirdItemIcon}
+                className="triple-item_third-image"
+                alt="Sportsinternational"
+              />
+            </div>
+          </a>
         </div>
       </div>
     </div>

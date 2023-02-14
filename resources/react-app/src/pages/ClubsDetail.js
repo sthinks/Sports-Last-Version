@@ -15,6 +15,7 @@ import allService from '../service/services.js'
 import Loading from '../components/loading/Loading'
 import { useNavigate } from 'react-router-dom'
 import Banner from '../components/banner/Banner'
+
 export const ClubsDetail = () => {
   const navigate = useNavigate()
   const [sliderImageArray, setSliderImageArray] = useState([])

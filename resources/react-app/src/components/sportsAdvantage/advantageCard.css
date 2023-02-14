@@ -1,0 +1,73 @@
+.advantage-card {
+    position: relative;
+}
+
+.advantage-discount {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background-color: black;
+    color: white;
+    font-weight: 500;
+    padding: 10px;
+}
+
+.advantage-card_image {
+    position: relative;
+}
+
+.advantage-card_image img {
+    width: 100%;
+    height: auto;
+}
+
+.advantage-address .advantage-locaton {
+    float: right;
+}
+
+.advantage-bottom_container {
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.advantage-bottom_container span {
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.advantage-address {
+    padding: 10px 0px;
+}
+
+.advantage-title {
+    padding: 10px 0px;
+}
+
+.advantage-title h5 {
+    margin: 0px;
+}
+
+.advantageList {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+
+.advantageList li {
+    background: #ffffff;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 24px;
+    color: #808080;
+}
+
+.active-btn {
+    background: #004c96 !important;
+    color: white !important;
+}

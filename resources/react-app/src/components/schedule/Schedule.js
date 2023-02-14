@@ -486,10 +486,10 @@ export default function Schedule({ marginB }) {
       className={
         dataSize
           ? [
-              marginB
-                ? 'schedule-background-1200 margin-b'
-                : 'schedule-background-1200',
-            ]
+            marginB
+              ? 'schedule-background-1200 margin-b'
+              : 'schedule-background-1200',
+          ]
           : [marginB ? 'schedule-background margin-b' : 'schedule-background']
       }
     >
@@ -553,9 +553,9 @@ export default function Schedule({ marginB }) {
           {!weekIsActive.length > 0 && (
             <div className="schedule-list">
               <div>SAAT</div>
-              <div>PROGRAM</div>
-              <div>AÇIKLAMA</div>
-              <div>SALON</div>
+              <div>DERSİN ADI</div>
+              <div>EĞİTMEN</div>
+              <div>STÜDYO</div>
             </div>
           )}
           <div className="schedule-list-calender">

@@ -19,6 +19,7 @@ import '../components/ScrollToTop/scrollTop.css'
 import CallToAction from '../components/calltoaction/CallToAction'
 import NotFound from '../components/notfound/NotFound'
 import Common from '../pages/Common'
+import SportsAdvantage from '../pages/SportsAdvantage'
 
 function Rotate() {
   const [visible, setVisible] = useState(false)
@@ -62,6 +63,7 @@ function Rotate() {
         <Route path="/kurucumuz" element={<Founder />} />
         <Route path="/genel-mudur-mesaji" element={<GMmessage />} />
         <Route path="/sportslu-anlatiyor" element={<SportsTalk />} />
+        <Route path="/sports-club-avantajları" element={<SportsAdvantage />} />
         <Route path="/kurumsal/:slug" element={<Common />} />
         <Route
           path="/sportslu-anlatiyor/:slug"
