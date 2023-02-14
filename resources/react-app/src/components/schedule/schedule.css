@@ -1,14 +1,17 @@
 @page {
   size: landscape;
 }
+
 @media print {
   html {
     overflow: visible !important;
   }
 }
+
 .margin-b {
   margin-bottom: 60px;
 }
+
 .schedule-background {
   width: 100%;
   height: 900px;
@@ -20,6 +23,7 @@
 
   padding: 60px 0px;
 }
+
 .schedule-background-1200 {
   width: 100%;
   height: max-content;
@@ -30,14 +34,17 @@
   background-image: url(/images/bg.png?e0b2175…);
   padding: 60px 0px;
 }
+
 .schedule-container {
   background-color: #0080c8e6;
   width: 90%;
   height: 90%;
 }
+
 .schedule-table-first-item {
   padding: 10px 80px 0px 80px;
 }
+
 .schedule {
   background-color: white;
   display: flex;
@@ -47,6 +54,7 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
+
 .schedule-sports-city-list ul {
   display: flex;
   list-style: none;
@@ -57,6 +65,7 @@
   color: rgba(88, 88, 88, 0.5);
   flex-wrap: wrap;
 }
+
 .schedule-sports-city-list-item-active {
   color: #0080c8;
 }
@@ -66,6 +75,7 @@
   margin-left: 70px;
   margin-right: 30px;
 }
+
 .schedule-lesson-announcement {
   display: flex;
   justify-content: center;
@@ -76,6 +86,7 @@
   box-shadow: rgb(50 50 93 / 25%) 0px 6px 12px -2px,
     rgb(0 0 0 / 30%) 0px 3px 7px -3px;
 }
+
 .schedule-lesson-announcement p {
   margin-bottom: 0;
   font-weight: 700;
@@ -93,26 +104,27 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: linear-gradient(
-    45deg,
-    #5b87fb 14.63%,
-    #8176eb 32.31%,
-    #b062d8 56.35%,
-    #cd56cc 74.74%,
-    #d852c8 85.34%
-  );
+  background: linear-gradient(45deg,
+      #5b87fb 14.63%,
+      #8176eb 32.31%,
+      #b062d8 56.35%,
+      #cd56cc 74.74%,
+      #d852c8 85.34%);
 
   border: 3px solid white;
   box-shadow: rgb(6 24 44 / 22%) 0px 0px 0px 2px,
     rgb(6 24 44 / 55%) 0px 4px 6px -1px, rgb(255 255 255 / 8%) 0px 1px 0px inset;
 }
-.lesson-announcment-icon > svg {
+
+.lesson-announcment-icon>svg {
   font-size: 25px;
   color: white;
 }
+
 .schedule-days {
   padding: 10px 80px 80px 80px;
 }
+
 .days-button-container {
   display: flex;
   justify-content: space-between;
@@ -121,6 +133,7 @@
   margin-top: 20px;
   margin-bottom: 10px;
 }
+
 .schedule-button {
   width: 12%;
   height: 54px;
@@ -140,9 +153,11 @@
   background: #004c96;
   color: white;
 }
+
 .schedule-list-container {
   padding: 10px 80px 0px 80px;
 }
+
 .schedule-list {
   display: flex;
   justify-content: space-between;
@@ -150,17 +165,20 @@
   padding: 0px 130px;
   margin-top: 30px;
 }
+
 .schedule-list div {
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
   color: #ffffff;
 }
+
 .schedule-list-container {
   padding: 10px 80px 0px 80px;
 }
-.schedule-list-calender {
-}
+
+.schedule-list-calender {}
+
 .schedule-list-calender ul {
   display: flex;
   justify-content: space-between;
@@ -169,6 +187,7 @@
   margin-bottom: 0px;
   padding-left: 0px;
 }
+
 .schedule-list-calender li {
   margin-top: 10px;
   list-style: none;
@@ -185,17 +204,21 @@
   line-height: 24px;
   color: #585858;
 }
+
 .schedule-list-container-week {
   padding: 10px 80px 0px 80px;
 }
+
 .schedule-list-calender-week {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 .shedule-list-item {
   width: 12%;
 }
+
 .shedule-list-item .total-item {
   width: 100%;
   height: 96px;
@@ -211,12 +234,14 @@
   flex-direction: column;
   text-align: center;
 }
+
 .total-item .hour-range {
   color: rgba(88, 88, 88, 0.7);
   font-weight: 700;
   font-size: 15px;
   line-height: 22px;
 }
+
 .total-item .programName {
   font-weight: 700;
   font-size: 18px;
@@ -230,14 +255,17 @@
   font-size: 15px;
   line-height: 22px;
 }
+
 .schedule-cancel-list-item {
   margin-left: 5px;
 }
+
 .schedule-lesson-print {
   padding: 10px 80px 0px 80px;
   display: flex;
   justify-content: end;
 }
+
 .schedule-lesson-print-container {
   display: flex;
   justify-content: space-around;
@@ -249,6 +277,7 @@
   border-radius: 30px;
   cursor: pointer;
 }
+
 .schedule-lesson-print-container p {
   font-weight: 700;
   font-size: 16px;
@@ -256,6 +285,7 @@
   color: #004c96;
   margin-bottom: 0px;
 }
+
 .schedule-lesson-print-icon {
   width: 40px;
   height: 40px;
@@ -263,14 +293,12 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: linear-gradient(
-    45deg,
-    #5b87fb 14.63%,
-    #8176eb 32.31%,
-    #b062d8 56.35%,
-    #cd56cc 74.74%,
-    #d852c8 85.34%
-  );
+  background: linear-gradient(45deg,
+      #5b87fb 14.63%,
+      #8176eb 32.31%,
+      #b062d8 56.35%,
+      #cd56cc 74.74%,
+      #d852c8 85.34%);
   border: 3px solid white;
   box-shadow: rgb(6 24 44 / 22%) 0px 0px 0px 2px,
     rgb(6 24 44 / 55%) 0px 4px 6px -1px, rgb(255 255 255 / 8%) 0px 1px 0px inset;
@@ -284,24 +312,30 @@
     margin-left: 30px;
     margin-right: 10px;
   }
+
   .schedule-button {
     font-size: 16px;
   }
+
   .schedule-list {
     padding: 0px 80px;
   }
+
   .schedule-list div {
     font-size: 18px;
   }
+
   .schedule-list-calender li {
     font-size: 16px;
     margin-right: 5px;
   }
+
   .total-item .hour-range {
     font-weight: 600;
     font-size: 15px;
     line-height: 15px;
   }
+
   .total-item .programName {
     font-size: 15px;
     line-height: 19px;
@@ -312,103 +346,130 @@
   .schedule-lesson-print-container {
     height: 45px;
   }
+
   .schedule-sports-city-list ul {
     font-size: 15px;
   }
+
   .schedule-sports-city-list li {
     cursor: pointer;
     margin-left: 20px;
     margin-right: 10px;
   }
+
   .schedule-button {
     font-size: 14px;
   }
+
   .schedule-list {
     padding: 0px 80px;
   }
+
   .schedule-list div {
     font-size: 18px;
   }
+
   .schedule-list-calender li {
     font-size: 13px;
     margin-right: 5px;
   }
+
   .total-item .hour-range {
     font-weight: 600;
     font-size: 13px;
     line-height: 15px;
   }
+
   .total-item .programName {
     font-size: 14px;
     line-height: 19px;
   }
 }
+
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .schedule-lesson-print-container {
     height: 45px;
     width: 390px;
   }
+
   .schedule-lesson-print-container p {
     font-size: 14px;
   }
+
   .schedule-sports-city-list ul {
     font-size: 13px;
   }
+
   .schedule-sports-city-list li {
     cursor: pointer;
     margin-left: 0px;
     margin-right: 10px;
   }
+
   .schedule-button {
     font-size: 14px;
     border-radius: 25px;
   }
+
   .schedule-list {
     padding: 0px 50px;
   }
+
   .schedule-list div {
     font-size: 18px;
   }
+
   .schedule-list-calender li {
     font-size: 12px;
     padding: 0px 25px;
     margin-right: 5px;
   }
+
   .total-item .hour-range {
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
   }
+
   .total-item .programName {
     font-size: 12px;
     line-height: 19px;
   }
+
   .total-item .descriptionName {
     font-size: 14px;
   }
+
   .schedule-lesson-announcement p {
     font-size: 12px;
     padding-right: 5px;
   }
+
   .lesson-announcment-icon {
     width: 35px;
     height: 35px;
   }
+
   .schedule-table-first-item {
     padding: 10px 40px 0px 40px;
   }
+
   .schedule-lesson-print {
     padding: 10px 40px 0px 40px;
   }
+
   .schedule-days {
     padding: 10px 40px 30px 40px;
   }
+
   .schedule-list-container {
     padding: 10px 40px 0px 40px;
   }
+
   .schedule-list-container-week {
     padding: 10px 40px 0px 40px;
   }
+
   .shedule-list-item .total-item {
     border-radius: 25px;
   }
@@ -419,105 +480,131 @@
     height: 45px;
     width: 320px;
   }
+
   .schedule-lesson-print-container p {
     font-size: 11px;
   }
+
   .schedule-lesson-print-icon {
     width: 35px;
     height: 35px;
     font-size: 16px;
   }
+
   .schedule-sports-city-list ul {
     font-size: 13px;
   }
+
   .schedule-sports-city-list li {
     cursor: pointer;
     margin-left: 0px;
     margin-right: 8px;
   }
+
   .schedule-button {
     font-size: 13px;
     border-radius: 20px;
   }
+
   .schedule-list {
     padding: 0px 50px;
   }
+
   .schedule-list div {
     font-size: 16px;
   }
+
   .schedule-list-calender li {
     font-size: 12px;
     padding: 0px 15px;
     margin-right: 5px;
   }
+
   .total-item .hour-range {
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
   }
+
   .total-item .programName {
     font-size: 12px;
     line-height: 19px;
   }
+
   .total-item .descriptionName {
     font-size: 14px;
   }
+
   .schedule-lesson-announcement p {
     font-size: 12px;
     padding-right: 5px;
   }
+
   .lesson-announcment-icon {
     width: 35px;
     height: 35px;
   }
+
   .schedule-table-first-item {
     padding: 10px 10px 10px 10px;
   }
+
   .schedule-lesson-print {
     padding: 10px 10px 10px 10px;
   }
+
   .schedule-days {
     padding: 10px 10px 30px 10px;
   }
+
   .schedule-list-container-week {
     padding: 10px 0px 0px 0px;
   }
+
   .shedule-list-item .total-item {
     border-radius: 20px;
   }
 }
+
 @media only screen and (min-width: 320px) and (max-width: 600px) {
   .schedule-lesson-print-container {
     height: 45px;
     width: 380px;
   }
+
   .schedule-lesson-print-container p {
     font-size: 10px;
   }
+
   .schedule-lesson-print-icon {
     width: 35px;
     height: 35px;
     font-size: 16px;
   }
+
   .schedule-sports-city-list ul {
     font-size: 13px;
   }
+
   .schedule-sports-city-list li {
     cursor: pointer;
     margin-left: 0px;
     margin: 10px 4px;
   }
+
   .schedule-button {
     font-size: 13px;
     border-radius: 20px;
     margin-right: 5px;
     width: 110px;
   }
+
   .schedule-button div {
     width: 110px;
     padding: 0px 0px;
     text-align: center;
   }
+
   .schedule-list {
     margin-left: 20px;
     flex-wrap: wrap;
@@ -525,70 +612,88 @@
     width: 900px;
     padding: 0px;
   }
+
   .schedule-list div {
     font-size: 16px;
     width: 25%;
     padding-left: 15px;
   }
+
   .schedule-list-calender li {
     font-size: 12px;
     padding: 0px 15px;
   }
+
   .total-item .hour-range {
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
   }
+
   .total-item .programName {
     font-size: 12px;
     line-height: 19px;
   }
+
   .total-item .descriptionName {
     font-size: 14px;
   }
+
   .schedule-lesson-announcement p {
     font-size: 11px;
     padding-right: 5px;
     text-align: center;
   }
+
   .lesson-announcment-icon {
     width: 43px;
     height: 35px;
   }
+
   .schedule-table-first-item {
     padding: 10px 10px 10px 10px;
   }
+
   .schedule-lesson-print {
     padding: 10px 10px 10px 10px;
   }
+
   .schedule-days {
     padding: 10px 10px 25px 10px;
     overflow: scroll;
   }
+
   .schedule-list-container {
     padding: 10px 10px 10px 10px;
   }
+
   .schedule-list-container-week {
     padding: 10px 10px 10px 10px;
   }
+
   .shedule-list-item .total-item {
     border-radius: 20px;
     width: 110px;
   }
+
   .schedule-list-calender {
     display: flex;
     flex-wrap: wrap;
   }
+
   .schedule-list-calender li {
     width: 225px;
     margin-right: 5px;
   }
+
   .days-button-container {
     flex-wrap: nowrap;
   }
+
   .schedule-list-calender-week {
     flex-wrap: nowrap;
   }
+
   .shedule-list-item {
     width: 110px;
     margin-right: 5px;

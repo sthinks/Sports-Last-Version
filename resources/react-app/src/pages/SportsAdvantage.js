@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AdvantageCard from '../components/sportsAdvantage/AdvantageCard'
 import "../components/sportsAdvantage/advantageCard.css"
-
+import Banner from "../assets/images/advantage.png"
 const data = [
     {
         id: 1,
@@ -113,19 +113,28 @@ const SportsAdvantage = () => {
         advantageHandler("Eğitim")
         setSelectedItem(1)
     }, [])
-
     return (
-        <div className='container'>
+        <div>
             <div>
-                <ul className='advantageList'>
-                    {data.map((item) => (
-                        <li key={item.id} className={`schedule-button ${selectedItem == item.id ? "active-btn" : ""}`} onClick={() => advantageHandler(item.title, item.id)}>{item.title}</li>
-                    ))}
-                </ul>
-                <div className='row'>
-                    {filteredAdvantage?.children?.map((item) => (
-                        <AdvantageCard item={item} />
-                    ))}
+                <img src={Banner} style={{ width: "100%", height: "auto" }} />
+            </div>
+            <div className='container'>
+                <div>
+                    <ul className='advantageList'>
+                        {data.map((item) => (
+                            <li key={item.id} className={`schedule-button ${selectedItem == item.id ? "active-btnn" : ""}`} onClick={() => advantageHandler(item.title, item.id)}>{item.title}</li>
+                        ))}
+                    </ul>
+                    <div style={{ background: "#0080C8", padding: "10px 0px", borderRadius: "50px", color: "white", textAlign: "center" }}>
+                        <h5 style={{ margin: "0px" }}>{filteredAdvantage?.title}</h5>
+                    </div>
+                    <div style={{ marginTop: "25px" }}>
+                        <div className='row'>
+                            {filteredAdvantage?.children?.map((item) => (
+                                <AdvantageCard item={item} />
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,19 +1,24 @@
 .advantage-card {
     position: relative;
+    display: flex;
+    margin-bottom: 25px;
 }
 
 .advantage-discount {
     position: absolute;
     bottom: 0px;
     right: 0px;
-    background-color: black;
+    background-color: #0080C8;
     color: white;
     font-weight: 500;
-    padding: 10px;
+    padding: 10px 0px;
+    width: 100%;
+    text-align: center;
 }
 
 .advantage-card_image {
     position: relative;
+    flex: 1;
 }
 
 .advantage-card_image img {
@@ -21,15 +26,18 @@
     height: auto;
 }
 
-.advantage-address .advantage-locaton {
+.advantage-address .advantage-location {
     float: right;
+    color: gray;
+    font-weight: 500;
 }
 
 .advantage-bottom_container {
-    height: 170px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex: 2;
+    padding: 25px;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.07);
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
 }
 
 .advantage-bottom_container span {
@@ -38,11 +46,18 @@
 }
 
 .advantage-address {
-    padding: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.advantage-address p {
+    margin: 0px;
 }
 
 .advantage-title {
     padding: 10px 0px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .advantage-title h5 {
@@ -53,6 +68,8 @@
     display: flex;
     list-style: none;
     justify-content: space-around;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    margin-top: 25px;
 }
 
 .advantageList li {
@@ -67,7 +84,33 @@
     color: #808080;
 }
 
-.active-btn {
-    background: #004c96 !important;
-    color: white !important;
+.active-btnn {
+    color: #0080C8 !important;
+}
+
+.advantage-location_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.advantage-location_container p {
+    margin: 0px;
+    margin-left: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    .advantageList {
+        padding: 0px !important;
+        flex-wrap: wrap;
+    }
+
+    .advantage-card {
+        display: block;
+    }
+
+    .advantage-bottom_container {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px
+    }
 }

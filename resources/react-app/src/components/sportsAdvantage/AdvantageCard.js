@@ -1,10 +1,11 @@
 import React from 'react'
 import Image from "../../assets/images/82.jpg"
 import "./advantageCard.css"
+import LocationIcon from "../../assets/images/location.png"
 
 const AdvantageCard = ({ item }) => {
     return (
-        <div className='col-md-4'>
+        <div className='col-12'>
             <div className='advantage-card'>
                 <div className='advantage-card_image'>
                     <img src={Image} />
@@ -15,16 +16,18 @@ const AdvantageCard = ({ item }) => {
                 <div className='advantage-bottom_container'>
                     <div className='advantage-title'>
                         <h5>{item.title}</h5>
+                        <div className="advantage-location_container">
+                            <img src={LocationIcon} />
+                            <p className='advantage-location'>{item.location}</p>
+                        </div>
                     </div>
 
-                    <span>{item.phone}</span>
-                    <span>{item.validityDate}</span>
                     <div className='advantage-address'>
-                        <span className=''>{item.address}</span>
-                        <span className='advantage-locaton'>{item.location}</span>
+                        <p>{item.address}</p>
+                        <p>*{item.validityDate}</p>
                     </div>
+                    <span>{item.phone}</span>
                 </div>
-
             </div>
         </div>
     )
