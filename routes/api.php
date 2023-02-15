@@ -18,6 +18,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SmsCodeController;
 use App\Http\Controllers\TalkingController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\AdvantageController;
+
 use App\Models\ClubSliderImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +57,8 @@ Route::get('/get-slider', [HomeSliderController::class, 'getSlider']);
 //Home Slider
 Route::get('/services', [ServiceController::class, 'all']);
 
+//advantages
+Route::get('/advantages', [AdvantageController::class, 'getall']);
 //registeruser
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
