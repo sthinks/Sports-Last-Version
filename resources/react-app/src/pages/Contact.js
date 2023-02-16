@@ -64,7 +64,8 @@ function Contact() {
     },
     {
       name: 'Ankara, Çankaya Vadi Rhythm by SPA',
-      address: 'Üniversiteler, İhsan Doğramacı Blv No:1, 06800 Çankaya/Ankara',
+      address:
+        'Güzeltepe, İlkadım, Dikmen Vadisi 3. Etap No: 3-B D:105, 06690 Çankaya/Ankara',
       phone: '444 75 35',
       map: 'https://goo.gl/maps/v5LfSpZqvasfKb4CA',
     },
