@@ -486,10 +486,10 @@ export default function Schedule({ marginB }) {
       className={
         dataSize
           ? [
-            marginB
-              ? 'schedule-background-1200 margin-b'
-              : 'schedule-background-1200',
-          ]
+              marginB
+                ? 'schedule-background-1200 margin-b'
+                : 'schedule-background-1200',
+            ]
           : [marginB ? 'schedule-background margin-b' : 'schedule-background']
       }
     >
@@ -515,9 +515,9 @@ export default function Schedule({ marginB }) {
             </div> */}
             <div className="schedule-sports-city-list">
               <ul>
-                {sportsPlace.map((item) => (
+                {sportsPlace.map((item, i) => (
                   <li
-                    key={item.id}
+                    key={i}
                     className={
                       activePlace === item.id
                         ? 'schedule-sports-city-list-item-active'
@@ -534,8 +534,9 @@ export default function Schedule({ marginB }) {
         </div>
         <div ref={componentRef} className="schedule-days">
           <div className="days-button-container">
-            {days.map((day) => (
+            {days.map((day, i) => (
               <div
+                key={i}
                 className={
                   tab === day.id
                     ? 'schedule-button active-btn '
@@ -559,8 +560,8 @@ export default function Schedule({ marginB }) {
             </div>
           )}
           <div className="schedule-list-calender">
-            {list.map((item) => (
-              <ul>
+            {list.map((item, i) => (
+              <ul key={i}>
                 <li>{item.hourRange}</li>
                 <li>{item.programName}</li>
                 <li>
@@ -590,10 +591,10 @@ export default function Schedule({ marginB }) {
 function generateDaySchedule(schedule, day) {
   return (
     <div className="shedule-list-item">
-      {schedule?.map((item) => {
+      {schedule?.map((item, i) => {
         if (item.day === day) {
           return (
-            <div className="total-item">
+            <div key={i} className="total-item">
               <div className="hour-range">{item.hourRange}</div>
               <div className="programName">{item.programName}</div>
               <div className="descriptionName">{item.description}</div>

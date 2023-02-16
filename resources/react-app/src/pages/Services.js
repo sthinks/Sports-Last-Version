@@ -39,7 +39,6 @@ export const Services = () => {
     const filteredValue = data?.data.filter((item) => {
       return item.id === value
     })
-    console.log('filtervalue', filteredValue)
     setFilteredData(filteredValue[0])
     setIsOpen(true)
   }
@@ -56,9 +55,6 @@ export const Services = () => {
   const { data, isLoading, refetch } = useService('services', () =>
     allService.fetchServices(),
   )
-  useEffect(() => {
-    console.log(data)
-  }, [data])
 
   return (
     <>

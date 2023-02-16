@@ -67,7 +67,14 @@ const bilkent = async (clubCode) => {
   const result = await AxiosClientSchedule.get(`list/${clubCode}`)
   return result.data
 }
-
+const fetchAdvantage = async () => {
+  const result = await axiosInstance.get('advantages')
+  return result.data
+}
+const fetchAdvantageCategory = async () => {
+  const result = await axiosInstance.get('avantage-category')
+  return result.data
+}
 const exportFunction = {
   getByTalks,
   fetchTalking,
@@ -84,6 +91,8 @@ const exportFunction = {
   fetchHomeSlider,
   fetchServices,
   fetchPagesId,
+  fetchAdvantage,
+  fetchAdvantageCategory,
 }
 
 export default exportFunction

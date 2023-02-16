@@ -9,16 +9,22 @@ import { RiTwitterFill } from 'react-icons/ri'
 import footerSignature from '../../assets/images/footer-signature.png'
 import { FaTiktok } from 'react-icons/fa'
 import { AiFillYoutube } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
-import { size } from 'lodash'
+import { Link, useNavigate } from 'react-router-dom'
 
+import { useService } from '../../service/useService'
+import allService from '../../service/services'
 export const Footer = () => {
-  const topScroll = () => {
+  const { data, isLoading, refetch } = useService('getclubs', () =>
+    allService.fetchClubs(),
+  )
+  const navigate = useNavigate()
+  const topScroll = (slug) => {
     document.body.scroll({
       top: 0,
       left: 0,
       behavior: 'smooth',
     })
+    navigate(`/kuluplerimiz/${slug}`)
   }
   return (
     <div className="footer">
@@ -102,88 +108,20 @@ export const Footer = () => {
               <div className="footer-list">
                 <ul>
                   <h4>KULÜPLERİMİZ</h4>
-                  <li>
-                    <Link
-                      onClick={() => topScroll()}
-                      to="/kuluplerimiz/ankara-bilkent-sports-international"
-                      style={{ color: 'white', textDecoration: 'none' }}
-                    >
-                      Ankara, Bilkent Sports International
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      onClick={() => topScroll()}
-                      to="/kuluplerimiz/i-zmir-mavisehir-sports-international"
-                      style={{ color: 'white', textDecoration: 'none' }}
-                    >
-                      İzmir, Mavişehir Sports International
-                    </Link>
-                  </li>
-                  <li>
-                    {' '}
-                    <Link
-                      onClick={() => topScroll()}
-                      to="/kuluplerimiz/i-stanbul-atakoy-sports-international"
-                      style={{ color: 'white', textDecoration: 'none' }}
-                    >
-                      İstanbul, Ataköy Sports International
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      onClick={() => topScroll()}
-                      to="/kuluplerimiz/ankara-cankaya-sports-international"
-                      style={{ color: 'white', textDecoration: 'none' }}
-                    >
-                      Ankara, Çankaya Sports International
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      onClick={() => topScroll()}
-                      to="/kuluplerimiz/mersin-marina-sports-international"
-                      style={{ color: 'white', textDecoration: 'none' }}
-                    >
-                      Mersin, Marina Sports International
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      onClick={() => topScroll()}
-                      to="/kuluplerimiz/ankara-kuzu-effect-sports-international"
-                      style={{ color: 'white', textDecoration: 'none' }}
-                    >
-                      Ankara, Kuzu Effect Sports International
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      onClick={() => topScroll()}
-                      to="/kuluplerimiz/i-stanbul-kadikoy-sports-international"
-                      style={{ color: 'white', textDecoration: 'none' }}
-                    >
-                      İstanbul, Kadıköy Sports International
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      onClick={() => topScroll()}
-                      to="/kuluplerimiz/ankara-bilkent-rhythm-by-spa"
-                      style={{ color: 'white', textDecoration: 'none' }}
-                    >
-                      Ankara, Bilkent Rhythm by SPA
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      onClick={() => topScroll()}
-                      to="/kuluplerimiz/ankara-cankaya-vadi-rhythm-by-spa"
-                      style={{ color: 'white', textDecoration: 'none' }}
-                    >
-                      Ankara, Çankaya Vadi Rhythm by SPA
-                    </Link>
-                  </li>
+                  {data?.map((item, i) => {
+                    return (
+                      item.name != 'kampanya' && (
+                        <li key={i}>
+                          <a
+                            href={`/kuluplerimiz/${item.slug}`}
+                            style={{ color: 'white', textDecoration: 'none' }}
+                          >
+                            {item.title}
+                          </a>
+                        </li>
+                      )
+                    )
+                  })}
                 </ul>
               </div>
             </div>

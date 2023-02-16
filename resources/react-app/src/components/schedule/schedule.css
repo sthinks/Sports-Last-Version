@@ -46,7 +46,7 @@
 }
 
 .schedule {
-  background-color: white;
+  background-color: #0080c8;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -62,12 +62,13 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
-  color: rgba(88, 88, 88, 0.5);
+  color: rgb(255 255 255 / 70%);
   flex-wrap: wrap;
 }
 
 .schedule-sports-city-list-item-active {
-  color: #0080c8;
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 .schedule-sports-city-list li {
@@ -79,6 +80,7 @@
 .schedule-lesson-announcement {
   display: flex;
   justify-content: center;
+
   align-items: center;
   border-radius: 30px;
   border: 1px solid white;
@@ -104,19 +106,21 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: linear-gradient(45deg,
-      #5b87fb 14.63%,
-      #8176eb 32.31%,
-      #b062d8 56.35%,
-      #cd56cc 74.74%,
-      #d852c8 85.34%);
+  background: linear-gradient(
+    45deg,
+    #5b87fb 14.63%,
+    #8176eb 32.31%,
+    #b062d8 56.35%,
+    #cd56cc 74.74%,
+    #d852c8 85.34%
+  );
 
   border: 3px solid white;
   box-shadow: rgb(6 24 44 / 22%) 0px 0px 0px 2px,
     rgb(6 24 44 / 55%) 0px 4px 6px -1px, rgb(255 255 255 / 8%) 0px 1px 0px inset;
 }
 
-.lesson-announcment-icon>svg {
+.lesson-announcment-icon > svg {
   font-size: 25px;
   color: white;
 }
@@ -177,7 +181,8 @@
   padding: 10px 80px 0px 80px;
 }
 
-.schedule-list-calender {}
+.schedule-list-calender {
+}
 
 .schedule-list-calender ul {
   display: flex;
@@ -293,12 +298,14 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: linear-gradient(45deg,
-      #5b87fb 14.63%,
-      #8176eb 32.31%,
-      #b062d8 56.35%,
-      #cd56cc 74.74%,
-      #d852c8 85.34%);
+  background: linear-gradient(
+    45deg,
+    #5b87fb 14.63%,
+    #8176eb 32.31%,
+    #b062d8 56.35%,
+    #cd56cc 74.74%,
+    #d852c8 85.34%
+  );
   border: 3px solid white;
   box-shadow: rgb(6 24 44 / 22%) 0px 0px 0px 2px,
     rgb(6 24 44 / 55%) 0px 4px 6px -1px, rgb(255 255 255 / 8%) 0px 1px 0px inset;

@@ -24,11 +24,11 @@ export const ClubsCard = () => {
       <div className="cards-container">
         <div className="container">
           <div className="cards-list">
-            {data?.map((card) => {
+            {data?.map((card, i) => {
               return (
                 card.name != 'kampanya' && (
                   <Link
-                    key={card.id}
+                    key={i}
                     to={`/kuluplerimiz/${card.slug}`}
                     onClick={() => scrollToTop()}
                   >

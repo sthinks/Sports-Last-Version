@@ -21,7 +21,6 @@ export const ClubsCardEvent = ({ setFiltered, setClubs }) => {
       left: 0,
     })
   }
-  console.log(data)
 
   return (
     !isLoading && (

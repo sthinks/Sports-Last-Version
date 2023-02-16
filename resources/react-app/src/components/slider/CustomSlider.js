@@ -7,7 +7,7 @@ export const CustomSlider = ({ image, setMenu }) => {
     arrow: false,
     dots: true,
     infinite: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 2000,
     pauseOnHover: false,
     autoplay: true,
     slidesToShow: 1,
@@ -22,8 +22,8 @@ export const CustomSlider = ({ image, setMenu }) => {
 
   return (
     <Slider {...settings} className="slider-container">
-      {image?.map((item) => (
-        <div className="slider-item">
+      {image?.map((item, i) => (
+        <div key={i} className="slider-item">
           <img src={item.image} alt="" />
           {item.title && (
             <div className="slider-text">

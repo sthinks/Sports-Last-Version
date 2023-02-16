@@ -17,22 +17,34 @@ import { useNavigate } from 'react-router-dom'
 import Banner from '../components/banner/Banner'
 
 export const ClubsDetail = () => {
-  const navigate = useNavigate()
   const [sliderImageArray, setSliderImageArray] = useState([])
+  const [haveSlider, setHaveSlider] = useState()
   const slug = useParams()
 
   const { data, isLoading, refetch } = useService(`club/${slug}`, () =>
     allService.getByClubsId(slug),
   )
   useEffect(() => {
-    setSliderImageArray(data?.club_slider_images[0].image.split(','))
+    const clubSliderLength = data?.club_slider_images.length
+    setHaveSlider(clubSliderLength)
+    if (clubSliderLength === 1) {
+      setSliderImageArray(data?.club_slider_images[0].image.split(','))
+    } else if (clubSliderLength === undefined) {
+      setHaveSlider(0)
+    }
+    refetch()
   }, [data])
-  const x = data?.club_slider_images[0].image.split(',').length // undefined
+
+  let x =
+    haveSlider === 1
+      ? data?.club_slider_images[0].image.split(',').length
+      : null
+
   var settings = {
     arrow: false,
     dots: false,
     infinite: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 1000,
     pauseOnHover: false,
     autoplay: true,
     slidesToShow: x ? (x <= 5 ? x - 1 : 5) : 0,
@@ -51,13 +63,7 @@ export const ClubsDetail = () => {
   if (isLoading) {
     return <Loading />
   }
-  const goNavigate = (slug) => {
-    document.body.scroll({
-      top: 0,
-      left: 0,
-    })
-    navigate(slug)
-  }
+
   return (
     !isLoading && (
       <div>
@@ -81,20 +87,21 @@ export const ClubsDetail = () => {
               style={{ width: '215px', height: 'auto' }}
             />
           </div>
-
-          <Slider {...settings}>
-            {sliderImageArray?.map((image) => (
-              <div className="clubs-detail_item">
-                <img src={image} alt="" />
-              </div>
-            ))}
-          </Slider>
+          {haveSlider === 1 && (
+            <Slider {...settings}>
+              {sliderImageArray?.map((image, i) => (
+                <div key={i} className="clubs-detail_item">
+                  <img src={image} alt="" />
+                </div>
+              ))}
+            </Slider>
+          )}
         </div>
 
         <div className="clubs-detail_card-container">
-          <div
+          <a
             className="clubs-detail_card"
-            onClick={() => goNavigate('/sportslu-anlatiyor')}
+            href="/sportslu-anlatiyor"
             style={{ cursor: 'pointer' }}
           >
             <img
@@ -106,10 +113,10 @@ export const ClubsDetail = () => {
               <img src={SportsIcon} className="clubs-detail_card-icon" alt="" />
               <img src={SportsArrow} alt="" />
             </div>
-          </div>
-          <div
+          </a>
+          <a
             className="clubs-detail_card"
-            onClick={() => goNavigate('/etkinlikler')}
+            href="/etkinlikler"
             style={{ cursor: 'pointer' }}
           >
             <div className="icons-container">
@@ -122,7 +129,7 @@ export const ClubsDetail = () => {
                 <img src={Card2Icon} className="sports-events" alt="" />
               </div>
             </div>
-          </div>
+          </a>
         </div>
 
         <Schedule marginB={true} />
