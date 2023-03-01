@@ -185,7 +185,8 @@
   }
 }
 
-@media only screen and (min-width: 1280px) and (max-height: 770px) and (min-height: 730px) {}
+@media only screen and (min-width: 1280px) and (max-height: 770px) and (min-height: 730px) {
+}
 
 @media only screen and (min-width: 1280px) and (max-height: 700px) {
   .slide-form-text {
@@ -244,5 +245,10 @@
 
   .option-box-close svg {
     font-size: 45px;
+  }
+}
+@media only screen and (min-height: 500px) and (max-height: 735px) {
+  .form-text-side > p {
+    display: none;
   }
 }

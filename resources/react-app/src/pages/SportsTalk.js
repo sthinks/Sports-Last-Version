@@ -54,7 +54,9 @@ function SportsTalk() {
             {total?.map((item) => (
               <li className="page-item">
                 <Link
-                  className="page-link"
+                  className={
+                    pagination === item ? 'page-link-active' : 'page-link'
+                  }
                   onClick={() => paginationHandler(item)}
                 >
                   {item}

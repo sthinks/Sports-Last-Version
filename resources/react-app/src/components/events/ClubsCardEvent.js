@@ -44,7 +44,7 @@ export const ClubsCardEvent = ({ setFiltered, setClubs }) => {
                 )
               })}
 
-            <a href="#events">
+            <div>
               <div className="home-card">
                 <img
                   src={middleImage}
@@ -52,7 +52,7 @@ export const ClubsCardEvent = ({ setFiltered, setClubs }) => {
                   style={{ width: '100%', height: 'auto' }}
                 />
               </div>
-            </a>
+            </div>
 
             {data &&
               data.slice(4).map((item, i) => {

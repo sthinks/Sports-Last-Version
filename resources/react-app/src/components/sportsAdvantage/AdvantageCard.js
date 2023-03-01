@@ -19,13 +19,13 @@ const AdvantageCard = ({ item }) => {
       <div className="advantage-card">
         <div className="advantage-card_image">
           <img src={item.image_discount} />
-          <div className="advantage-discount">
-            <span>{item.discount_description}</span>
-          </div>
         </div>
         <div className="advantage-bottom_container">
           <div className="advantage-title">
             <h5>{item.name}</h5>
+            <p style={{ color: '#0080c8', fontWeight: 'bold' }}>
+              İndirim Oranı {item.discount_description}
+            </p>
             <div className="advantage-location_container">
               <img src={LocationIcon} />
               <p className="advantage-location">{item.city}</p>

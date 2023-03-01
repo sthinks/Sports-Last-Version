@@ -1,5 +1,5 @@
 import axiosInstance from '../utils/axiosClient'
-import { AxiosClientSchedule } from '../utils/axiosClient'
+import AxiosClientSchedule from '../utils/axiosClientSchedule'
 
 //Events API
 const fetchTalking = async (pagination) => {
@@ -63,8 +63,8 @@ const fetchServices = async () => {
   return result
 }
 
-const bilkent = async (clubCode) => {
-  const result = await AxiosClientSchedule.get(`list/${clubCode}`)
+const fetchSchedule = async (clubCode) => {
+  const result = await AxiosClientSchedule.get(`/${clubCode}`)
   return result.data
 }
 const fetchAdvantage = async () => {
@@ -73,6 +73,10 @@ const fetchAdvantage = async () => {
 }
 const fetchAdvantageCategory = async () => {
   const result = await axiosInstance.get('avantage-category')
+  return result.data
+}
+const fetchAvantageBanner = async () => {
+  const result = await axiosInstance.get('advantage-banner')
   return result.data
 }
 const exportFunction = {
@@ -85,7 +89,7 @@ const exportFunction = {
   fetchPages,
   getByPagesId,
   contactPost,
-  bilkent,
+  fetchSchedule,
   joinUsPost,
   joinUsPhoneValidation,
   fetchHomeSlider,
@@ -93,6 +97,7 @@ const exportFunction = {
   fetchPagesId,
   fetchAdvantage,
   fetchAdvantageCategory,
+  fetchAvantageBanner,
 }
 
 export default exportFunction

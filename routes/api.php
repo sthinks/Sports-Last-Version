@@ -61,7 +61,10 @@ Route::get('/services', [ServiceController::class, 'all']);
 //advantages
 Route::get('/advantages', [AdvantageController::class, 'getall']);
 Route::get('/avantage-category', [AvantageCategoryController::class, 'getall']);
-
+Route::get('/advantage-banner', [
+    AvantageCategoryController::class,
+    'advantageBanner',
+]);
 //registeruser
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

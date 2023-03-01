@@ -4,12 +4,15 @@ import { BiBell } from 'react-icons/bi'
 import { TfiPrinter } from 'react-icons/tfi'
 import { useReactToPrint } from 'react-to-print'
 import { useService } from '../../service/useService'
+import AxiosClientSchedule from '../../utils/axiosClientSchedule'
 import allService from '../../service/services'
+
 import Loading from '../loading/Loading'
 export default function Schedule({ marginB }) {
   const [data, setData] = useState()
   const [tab, setTab] = useState(1)
   const [list, setList] = useState([])
+  const [dataSlug, setDataSlug] = useState(11190)
   const [activePlace, activeSetPlace] = useState(1)
   const [weekIsActive, setWeekIsActive] = useState([])
   const [dataSize, setDataSize] = useState(false)
@@ -443,6 +446,22 @@ export default function Schedule({ marginB }) {
     },
   ]
 
+  const handlerSchedule = async () => {
+    await allService
+      .fetchSchedule(`list/${dataSlug}`)
+      .then((res) => setData(res.data))
+  }
+  useEffect(() => {
+    handlerSchedule()
+  }, [])
+  useEffect(() => {
+    handlerSchedule()
+  }, [activePlace])
+  useEffect(() => {
+    if (data) {
+      activeList(tab)
+    }
+  }, [data])
   const activeTab = (id) => {
     const result = days.filter((item) => item.id === id)
     setTab(result[0].id)
@@ -451,12 +470,12 @@ export default function Schedule({ marginB }) {
     if (day === 0) {
       setDataSize(true)
       setList([])
-      const result = dataa.map((item) => {
+      const result = data?.map((item) => {
         return item
       })
       setWeekIsActive(result)
     } else {
-      const result = dataa.filter((item) => item.day === day)
+      const result = data?.filter((item) => item.day === day)
       if (result.length > 7) {
         setDataSize(true)
       } else {
@@ -469,17 +488,8 @@ export default function Schedule({ marginB }) {
   const activePlaceHandler = (id) => {
     const result = sportsPlace.filter((item) => item.id === id)
     activeSetPlace(result[0].id)
+    setDataSlug(result[0].slug)
   }
-
-  //Apiler geldiği zaman çalışacak.
-  // const fetchClubs = async (slug) => {
-  //   const result = await allService.bilkent(slug)
-  //   setData(result)
-  // }
-
-  useEffect(() => {
-    activeList(1)
-  }, [])
 
   return (
     <div
@@ -551,7 +561,7 @@ export default function Schedule({ marginB }) {
               </div>
             ))}
           </div>
-          {!weekIsActive.length > 0 && (
+          {!weekIsActive?.length > 0 && (
             <div className="schedule-list">
               <div>SAAT</div>
               <div>DERSİN ADI</div>

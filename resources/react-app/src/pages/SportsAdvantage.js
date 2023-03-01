@@ -5,6 +5,7 @@ import Banner from '../assets/images/advantage.png'
 import { useService } from '../service/useService'
 import allService from '../service/services.js'
 import Loading from '../components/loading/Loading'
+import AxiosClient from '../utils/axiosClient'
 const dataa = [
   {
     id: 1,
@@ -106,12 +107,17 @@ const SportsAdvantage = () => {
   const [filteredAdvantage, setFilteredAdvantage] = useState(null)
   const [selectedItem, setSelectedItem] = useState(null)
   const [title, setTitle] = useState()
+  const [banner, setBanner] = useState()
   const { data, isLoading, refetch } = useService('advantages', () =>
     allService.fetchAdvantage(),
   )
   const getAllCategory = async () => {
     const result = await allService.fetchAdvantageCategory()
     setCategory(result)
+  }
+  const fetchBanner = async () => {
+    const result = await allService.fetchAvantageBanner()
+    setBanner(result)
   }
   const advantageHandler = (eventTitle, itemId) => {
     const filteredData = data?.filter((item) => {
@@ -121,7 +127,9 @@ const SportsAdvantage = () => {
     setFilteredAdvantage(filteredData)
     setSelectedItem(itemId)
   }
-
+  useEffect(() => {
+    fetchBanner()
+  }, [])
   useEffect(() => {
     getAllCategory()
     advantageHandler('Eğitim')
@@ -135,7 +143,13 @@ const SportsAdvantage = () => {
     !isLoading && (
       <div>
         <div>
-          <img src={Banner} style={{ width: '100%', height: 'auto' }} />
+          {banner && (
+            <img
+              src={banner[0]?.image}
+              style={{ width: '100%', height: 'auto' }}
+              alt=""
+            />
+          )}
         </div>
         <div className="container">
           <div>

@@ -217,6 +217,9 @@ input:-internal-autofill-selected {
   .form-input-calltoaction {
     height: 65px;
   }
+  .form-input-calltoaction-error {
+    height: 65px;
+  }
   .option-box {
     width: 65px;
     height: 65px;
@@ -237,6 +240,9 @@ input:-internal-autofill-selected {
     margin-bottom: 60px;
   }
   .form-input-calltoaction {
+    height: 65px;
+  }
+  .form-input-calltoaction-error {
     height: 65px;
   }
   .action-card_inner h1 {
@@ -278,8 +284,8 @@ input:-internal-autofill-selected {
     font-size: 45px;
   }
   .option-box {
-    width: 65px;
-    height: 65px;
+    width: 50px;
+    height: 50px;
     position: absolute;
     background-color: white;
     right: 11px;
@@ -292,8 +298,15 @@ input:-internal-autofill-selected {
   .action-cart_inner-form {
     width: 77%;
   }
+  .form-container {
+    margin-top: 0px;
+  }
+
   .form-input-calltoaction {
-    height: 65px;
+    height: 50px;
+  }
+  .form-input-calltoaction-error {
+    height: 50px;
   }
   .action-card_title {
     position: relative;
@@ -381,7 +394,59 @@ input:-internal-autofill-selected {
 }
 
 /* For 480 Resolution */
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media only screen and (min-device-width: 300px) and (max-device-width: 365px) {
+  .form-error-content {
+    display: none;
+  }
+  .action-card_title {
+    margin-top: 20px;
+  }
+  .action-card_inner {
+    width: 90%;
+    height: 95%;
+  }
+  .action-card_inner h1 {
+    font-size: 27px;
+  }
+  .form-list {
+    padding: 0px 0px !important;
+  }
+  .form-container {
+    margin-top: 28px !important;
+  }
+
+  .action-cart_inner-form {
+    width: 100%;
+  }
+
+  .form-list .form-control,
+  .form-select {
+    padding: 0px 0px !important;
+    padding: 10px;
+    border-radius: 30px;
+  }
+
+  .form-element {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 10px !important;
+  }
+
+  .option-box {
+    width: 65px;
+    height: 65px;
+    right: 11px;
+    top: 1px;
+  }
+
+  .form-list .form-button {
+    width: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+@media only screen and (min-device-width: 365px) and (max-device-width: 480px) {
   .form-error-content {
     display: none;
   }
@@ -434,7 +499,7 @@ input:-internal-autofill-selected {
 }
 
 /* For 480 Resolution */
-@media only screen and (min-device-width: 320px) and (max-device-height: 745px) {
+@media only screen and (min-device-width: 320px) and (max-device-height: 715px) {
   .form-error-content {
     display: none;
   }
