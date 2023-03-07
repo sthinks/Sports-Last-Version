@@ -15,7 +15,7 @@ function VizionMission() {
                   <p className="vision-mission-text">
                     Sağlıklı, mutlu, güçlü, kendini iyi hisseden nesiller için;{' '}
                     <br />
-                    spot ve sağlıklı yaşam kültürünü, her gün ileriye giden{' '}
+                    spor ve sağlıklı yaşam kültürünü, her gün ileriye giden{' '}
                     <br />
                     hizmet anlayışımızla geniş kitlelere ulaştırmak.
                   </p>

@@ -6,10 +6,12 @@ import { useReactToPrint } from 'react-to-print'
 import { useService } from '../../service/useService'
 import AxiosClientSchedule from '../../utils/axiosClientSchedule'
 import allService from '../../service/services'
-
 import Loading from '../loading/Loading'
+import AxiosClient from '../../utils/axiosClient'
+import axios from 'axios'
 export default function Schedule({ marginB }) {
   const [data, setData] = useState()
+  const [allData, setAllData] = useState()
   const [tab, setTab] = useState(1)
   const [list, setList] = useState([])
   const [dataSlug, setDataSlug] = useState(11190)
@@ -27,31 +29,37 @@ export default function Schedule({ marginB }) {
     {
       id: 1,
       name: 'Bilkent',
+      value: 'bilkent',
       slug: 11190,
     },
     {
       id: 2,
       name: 'Ataköy',
+      value: 'atakoy',
       slug: 11192,
     },
     {
       id: 3,
       name: 'Kadıköy',
+      value: 'kadikoy',
       slug: 11191,
     },
     {
       id: 4,
       name: 'Mavişehir',
+      value: 'mavisehir',
       slug: 11194,
     },
     {
       id: 5,
       name: 'Mersin',
+      value: 'yenisehir',
       slug: 11193,
     },
     {
       id: 6,
       name: 'Effect',
+      value: 'effectankara',
       slug: 14,
     },
   ]
@@ -89,379 +97,50 @@ export default function Schedule({ marginB }) {
       title: 'Haftalık',
     },
   ]
-  //Bilkent
-  const dataa = [
-    {
-      day: 1,
-      hourRange: '11:00 - 11:50',
-      programName: 'Pilates',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Tuğba',
-      startAsTimeStamp: 1672646400000,
-      endAsTimeStamp: 1672649459000,
-    },
-    {
-      day: 1,
-      hourRange: '12:05 - 12:55',
-      programName: 'Cardio Training',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Tuğba',
-      startAsTimeStamp: 1672650300000,
-      endAsTimeStamp: 1672653359000,
-    },
-    {
-      day: 1,
-      hourRange: '18:30 - 19:15',
-      programName: 'Pilates',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Tuğba',
-      startAsTimeStamp: 1672673400000,
-      endAsTimeStamp: 1672676159000,
-    },
-    {
-      day: 1,
-      hourRange: '19:30 - 20:15',
-      programName: 'Spinning',
-      trainerName: '',
-      locationName: 'Spinning',
-      isCancelled: false,
-      description: 'Burak',
-      startAsTimeStamp: 1672677000000,
-      endAsTimeStamp: 1672679759000,
-    },
-    {
-      day: 1,
-      hourRange: '19:30 - 20:15',
-      programName: 'Fat Burn',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Tuğba',
-      startAsTimeStamp: 1672677000000,
-      endAsTimeStamp: 1672679759000,
-    },
-    {
-      day: 1,
-      hourRange: '20:30 - 21:20',
-      programName: 'Yoga',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Süreyya',
-      startAsTimeStamp: 1672680600000,
-      endAsTimeStamp: 1672683659000,
-    },
-    {
-      day: 2,
-      hourRange: '18:30 - 19:15',
-      programName: 'Fit Muscle',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Tuğba',
-      startAsTimeStamp: 1672759800000,
-      endAsTimeStamp: 1672762559000,
-    },
-    {
-      day: 2,
-      hourRange: '19:15 - 20:00',
-      programName: 'Spinning',
-      trainerName: '',
-      locationName: 'Spinning',
-      isCancelled: false,
-      description: 'Nihat\r',
-      startAsTimeStamp: 1672762500000,
-      endAsTimeStamp: 1672765259000,
-    },
-    {
-      day: 2,
-      hourRange: '19:30 - 20:15',
-      programName: 'Pilates',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Tuğba',
-      startAsTimeStamp: 1672763400000,
-      endAsTimeStamp: 1672766159000,
-    },
-    {
-      day: 2,
-      hourRange: '20:30 - 21:20',
-      programName: 'Zumba',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Nihat',
-      startAsTimeStamp: 1672767000000,
-      endAsTimeStamp: 1672770059000,
-    },
-    {
-      day: 3,
-      hourRange: '11:00 - 11:50',
-      programName: 'Pilates',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Tuğba',
-      startAsTimeStamp: 1672819200000,
-      endAsTimeStamp: 1672822259000,
-    },
-    {
-      day: 3,
-      hourRange: '12:05 - 12:55',
-      programName: 'Fat Burn',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Tuğba',
-      startAsTimeStamp: 1672823100000,
-      endAsTimeStamp: 1672826159000,
-    },
-    {
-      day: 3,
-      hourRange: '18:30 - 19:15',
-      programName: 'Pilates',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Melek',
-      startAsTimeStamp: 1672846200000,
-      endAsTimeStamp: 1672848959000,
-    },
-    {
-      day: 3,
-      hourRange: '19:30 - 20:15',
-      programName: 'Spinning',
-      trainerName: '',
-      locationName: 'Spinning',
-      isCancelled: false,
-      description: 'Batuhan',
-      startAsTimeStamp: 1672849800000,
-      endAsTimeStamp: 1672852559000,
-    },
-    {
-      day: 3,
-      hourRange: '19:30 - 20:15',
-      programName: '%100 Fit',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Melek',
-      startAsTimeStamp: 1672849800000,
-      endAsTimeStamp: 1672852559000,
-    },
-
-    {
-      day: 4,
-      hourRange: '11:00 - 11:50',
-      programName: 'Body Shape',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Nihat',
-      startAsTimeStamp: 1672905600000,
-      endAsTimeStamp: 1672908659000,
-    },
-    {
-      day: 4,
-      hourRange: '12:05 - 12:55',
-      programName: 'Zumba',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Nihat',
-      startAsTimeStamp: 1672909500000,
-      endAsTimeStamp: 1672912559000,
-    },
-    {
-      day: 4,
-      hourRange: '13:20 - 14:10',
-      programName: 'Yoga',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: true,
-      description: 'Süreyya',
-      startAsTimeStamp: 1672914000000,
-      endAsTimeStamp: 1672917059000,
-    },
-    {
-      day: 4,
-      hourRange: '18:30 - 19:15',
-      programName: 'Step by Step',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Nihat',
-      startAsTimeStamp: 1672932600000,
-      endAsTimeStamp: 1672935359000,
-    },
-    {
-      day: 4,
-      hourRange: '18:30 - 19:20',
-      programName: 'Yoga',
-      trainerName: '',
-      locationName: 'Spinning',
-      isCancelled: false,
-      description: 'Süreyya',
-      startAsTimeStamp: 1672932600000,
-      endAsTimeStamp: 1672935659000,
-    },
-    {
-      day: 4,
-      hourRange: '19:30 - 20:15',
-      programName: 'Cardio Training',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Tuğba',
-      startAsTimeStamp: 1672936200000,
-      endAsTimeStamp: 1672938959000,
-    },
-    {
-      day: 4,
-      hourRange: '20:30 - 21:15',
-      programName: 'Body Shape',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Nihat',
-      startAsTimeStamp: 1672939800000,
-      endAsTimeStamp: 1672942559000,
-    },
-    {
-      day: 4,
-      hourRange: '20:30 - 21:15',
-      programName: 'Stretch&Flex',
-      trainerName: '',
-      locationName: 'Spinning',
-      isCancelled: false,
-      description: 'Tuğba',
-      startAsTimeStamp: 1672939800000,
-      endAsTimeStamp: 1672942559000,
-    },
-    {
-      day: 5,
-      hourRange: '11:00 - 11:50',
-      programName: 'Body Mix',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Batuhan',
-      startAsTimeStamp: 1672992000000,
-      endAsTimeStamp: 1672995059000,
-    },
-    {
-      day: 5,
-      hourRange: '12:05 - 12:55',
-      programName: 'Stretch&Flex',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Tuğba',
-      startAsTimeStamp: 1672995900000,
-      endAsTimeStamp: 1672998959000,
-    },
-    {
-      day: 5,
-      hourRange: '18:30 - 19:15',
-      programName: '%100 Fit',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Melek',
-      startAsTimeStamp: 1673019000000,
-      endAsTimeStamp: 1673021759000,
-    },
-    {
-      day: 5,
-      hourRange: '19:30 - 20:15',
-      programName: 'Spinning',
-      trainerName: '',
-      locationName: 'Spinning',
-      isCancelled: false,
-      description: 'Sinem',
-      startAsTimeStamp: 1673022600000,
-      endAsTimeStamp: 1673025359000,
-    },
-    {
-      day: 5,
-      hourRange: '19:30 - 20:15',
-      programName: "Hips'n ABS",
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Melek',
-      startAsTimeStamp: 1673022600000,
-      endAsTimeStamp: 1673025359000,
-    },
-    {
-      day: 6,
-      hourRange: '12:30 - 13:20',
-      programName: '%100 Fit',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Burak',
-      startAsTimeStamp: 1673083800000,
-      endAsTimeStamp: 1673086859000,
-    },
-    {
-      day: 6,
-      hourRange: '13:30 - 14:20',
-      programName: 'Pilates',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Tuğba',
-      startAsTimeStamp: 1673087400000,
-      endAsTimeStamp: 1673090459000,
-    },
-    {
-      day: 7,
-      hourRange: '12:30 - 13:20',
-      programName: 'Tabata',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Sinem',
-      startAsTimeStamp: 1673170200000,
-      endAsTimeStamp: 1673173259000,
-    },
-    {
-      day: 7,
-      hourRange: '13:30 - 14:20',
-      programName: 'Yoga',
-      trainerName: '',
-      locationName: 'Stüdyo',
-      isCancelled: false,
-      description: 'Süreyya',
-      startAsTimeStamp: 1673173800000,
-      endAsTimeStamp: 1673176859000,
-    },
-  ]
 
   const handlerSchedule = async () => {
-    await allService
-      .fetchSchedule(`list/${dataSlug}`)
-      .then((res) => setData(res.data))
+    await axios(
+      'https://www.sportsinternational.com.tr/api/lesson-program',
+    ).then((res) => setAllData(res.data))
   }
   useEffect(() => {
     handlerSchedule()
   }, [])
   useEffect(() => {
-    handlerSchedule()
-  }, [activePlace])
+    if (allData) {
+      filterCity(activePlace)
+    }
+  }, [allData, activePlace])
   useEffect(() => {
     if (data) {
       activeList(tab)
     }
   }, [data])
+  const filterCity = (cityValue) => {
+    switch (cityValue) {
+      case 1:
+        setData(allData?.bilkent)
+        break
+      case 2:
+        setData(allData?.atakoy)
+        break
+      case 3:
+        setData(allData?.kadikoy)
+        break
+      case 4:
+        setData(allData?.mavisehir)
+        break
+      case 5:
+        setData(allData?.yenisehir)
+        break
+      case 6:
+        setData(allData?.effectankara)
+        break
+
+      default:
+        break
+    }
+  }
   const activeTab = (id) => {
     const result = days.filter((item) => item.id === id)
     setTab(result[0].id)
@@ -488,7 +167,7 @@ export default function Schedule({ marginB }) {
   const activePlaceHandler = (id) => {
     const result = sportsPlace.filter((item) => item.id === id)
     activeSetPlace(result[0].id)
-    setDataSlug(result[0].slug)
+    setDataSlug(result[0].id)
   }
 
   return (

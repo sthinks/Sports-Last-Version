@@ -107,7 +107,16 @@ function Contact() {
             </p>
           </div>
         </div>
-        <div className="contact-right-side">İLGİM HANIMDAN GELECEK</div>
+        <div className="contact-left-side">
+          <div>
+            <p className="contact-footer-text">Öneri ve görüşleriniz için</p>
+            <p className="contact-footer-phone">444 75 35</p>
+            <p className="contact-footer-text">
+              Müşteri Hizmetleri numaramızdan
+              <br /> bize ulaşabilirsiniz.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )

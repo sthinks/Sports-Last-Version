@@ -52,19 +52,16 @@ const joinUsPhoneValidation = async (data) => {
   const result = await axiosInstance.post('join-us/validate', data)
   return result
 }
-
 const fetchHomeSlider = async () => {
   const result = await axiosInstance.get('get-slider')
   return result
 }
-
 const fetchServices = async () => {
   const result = await axiosInstance.get('services')
   return result
 }
-
 const fetchSchedule = async (clubCode) => {
-  const result = await AxiosClientSchedule.get(`/${clubCode}`)
+  const result = await AxiosClientSchedule.get(clubCode)
   return result.data
 }
 const fetchAdvantage = async () => {
