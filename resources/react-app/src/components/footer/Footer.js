@@ -10,7 +10,7 @@ import footerSignature from '../../assets/images/footer-signature.png'
 import { FaTiktok } from 'react-icons/fa'
 import { AiFillYoutube } from 'react-icons/ai'
 import { Link, useNavigate } from 'react-router-dom'
-
+import '../mobilPhoneBottom/mobilphone.css'
 import { useService } from '../../service/useService'
 import allService from '../../service/services'
 export const Footer = () => {
@@ -24,10 +24,12 @@ export const Footer = () => {
       left: 0,
       behavior: 'smooth',
     })
-    navigate(`/kuluplerimiz/${slug}`)
+    if (slug) {
+      navigate(`/kuluplerimiz/${slug}`)
+    }
   }
   return (
-    <div className="footer">
+    <div className="footer footer-padding">
       <div className="footer-top">
         <div className="container">
           <div className="row">
@@ -76,6 +78,16 @@ export const Footer = () => {
                   <li>
                     <a
                       onClick={() => topScroll()}
+                      href="http://www.sportsinternational.com.tr/documents/aydinlatma_gdpr.pdf"
+                      target="blank"
+                      style={{ color: 'white', textDecoration: 'none' }}
+                    >
+                      Kişisel Verilerin Korunması (GDPR)
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      onClick={() => topScroll()}
                       href="/kurumsal/kvkk-calisan-bilgilendirme"
                       style={{ color: 'white', textDecoration: 'none' }}
                     >
@@ -85,7 +97,7 @@ export const Footer = () => {
                   <li>
                     <a
                       onClick={() => topScroll()}
-                      href="http://www.sportsinternational.com.tr/FR.03.pdf"
+                      href="http://www.sportsinternational.com.tr/documents/FR.03.pdf"
                       target="blank"
                       style={{ color: 'white', textDecoration: 'none' }}
                     >
@@ -173,6 +185,9 @@ export const Footer = () => {
                     <AiFillYoutube />
                   </a>
                 </div>
+                <a className="footer-phone" href="tel:444 75 35">
+                  Tel: 444 75 35
+                </a>
               </div>
             </div>
           </div>

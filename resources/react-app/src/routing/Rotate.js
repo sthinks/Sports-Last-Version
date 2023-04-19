@@ -16,13 +16,16 @@ import { Clubs } from '../pages/Clubs'
 import { ClubsDetail } from '../pages/ClubsDetail'
 import { FiChevronUp } from 'react-icons/fi'
 import '../components/ScrollToTop/scrollTop.css'
+import '../components/mobilPhoneBottom/mobilphone.css'
 import CallToAction from '../components/calltoaction/CallToAction'
 import NotFound from '../components/notfound/NotFound'
 import Common from '../pages/Common'
 import SportsAdvantage from '../pages/SportsAdvantage'
+import { MdPhoneEnabled } from 'react-icons/md'
 
 function Rotate() {
   const [visible, setVisible] = useState(false)
+  const [mobilPhone, setMobilPhone] = useState(false)
   const [form, setForm] = useState(false)
 
   const scrollToTop = () => {
@@ -42,6 +45,13 @@ function Rotate() {
       }
     })
   }, [])
+  useEffect(() => {
+    if (window.screen.width < 768) {
+      setMobilPhone(true)
+    } else {
+      setMobilPhone(false)
+    }
+  }, [window.screen])
 
   return (
     <>
@@ -79,6 +89,12 @@ function Rotate() {
       )}
 
       <Footer />
+
+      <a href="tel:444 75 35" className="mobil-phone">
+        <div>
+          <MdPhoneEnabled style={{ color: 'white' }} />
+        </div>
+      </a>
     </>
   )
 }

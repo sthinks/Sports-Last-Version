@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
-import { useService } from '../../service/useService'
 import allService from '../../service/services'
 import { useNavigate } from 'react-router-dom'
 import './phoneConfirm.css'
@@ -13,6 +12,7 @@ function PhoneConfirm({
   handleClose,
   descpriction,
   btnText,
+  btnTitle,
 }) {
   const navigate = useNavigate()
   const [phoneVerify, setPhoneVerify] = useState()
@@ -22,22 +22,41 @@ function PhoneConfirm({
   const validationPhoneHandler = async () => {
     const result = await allService.joinUsPhoneValidation(phoneVerify)
 
-    if (result.data.message === 'hatalı kod girdinizz') {
+    if (result.data.message === 'hatalı kod girdiniz') {
       console.log('hatalı kod girdiniz')
       setConfirmValidate(true)
-      setConfirmText('Hatalı kod girdiniz.')
+      setConfirmText('Hatalı kod girdiniz, Tekrar deneyiniz.')
       setTextColor(false)
+      setTimeout(navigate(0), 5000)
     } else {
       setConfirmValidate(true)
       setConfirmText('Doğrulama başarılı')
-      setTimeout(navigate(0), 1000)
       setTextColor(true)
+      setTimeout(navigate(0), 1000)
     }
   }
   return (
-    <Modal show={showModal} onHide={() => handleClose()}>
+    <Modal
+      show={showModal}
+      onHide={() => {
+        handleClose()
+        setTimeout(navigate(0), 1000)
+      }}
+    >
       <Modal.Header closeButton>
-        <Modal.Title>Telefon Doğrulama</Modal.Title>
+        <Modal.Title>
+          {btnTitle && (
+            <p
+              style={
+                btnTitle === 'Uyarı'
+                  ? { color: '#d10000' }
+                  : { color: '#2a9100' }
+              }
+            >
+              {btnTitle}
+            </p>
+          )}
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         {descpriction ? (
@@ -63,7 +82,13 @@ function PhoneConfirm({
             Gönder
           </Button>
         ) : (
-          <Button variant="white" onClick={() => setShowModal(!showModal)}>
+          <Button
+            variant="white"
+            onClick={() => {
+              setShowModal(!showModal)
+              setTimeout(navigate(0), 1000)
+            }}
+          >
             Kapat
           </Button>
         )}

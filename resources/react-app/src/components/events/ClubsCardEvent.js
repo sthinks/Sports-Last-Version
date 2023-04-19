@@ -4,7 +4,7 @@ import { useService } from '../../service/useService'
 import allService from '../../service/services'
 import Loading from '../loading/Loading'
 import './club-card-event.css'
-import middleImage from '../../assets/images/events/bize-sportslu-derler.jpg'
+import middleImage from '../../assets/images/events/bize-sportslu-derler.webp'
 import sportsComp from '../../assets/images/events/sports-kampanyalari.jpg'
 
 export const ClubsCardEvent = ({ setFiltered, setClubs }) => {

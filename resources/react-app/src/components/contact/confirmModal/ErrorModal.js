@@ -12,7 +12,7 @@ function ErrorModal({ showModalError, setShowModalError, handleCloseError }) {
   return (
     <Modal show={showModalError} onHide={() => handleCloseError()}>
       <Modal.Header closeButton>
-        <Modal.Title style={{ color: '#0080c8' }}>
+        <Modal.Title style={{ color: '#ff6c6c' }}>
           Formunuz iletilemedi.
         </Modal.Title>
       </Modal.Header>

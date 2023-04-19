@@ -48,7 +48,18 @@
   list-style: none;
   padding: 0px;
 }
-
+.footer-phone {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+.footer-phone:hover {
+  color: rgb(166, 216, 255) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  font-size: 1.25rem !important;
+}
 .footer_social-media svg {
   color: white;
   font-size: 25px;

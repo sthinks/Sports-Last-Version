@@ -36,11 +36,12 @@ class ContactFormController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-            //validation
+        //validation
         $validation = $this->integrationService->validationData($data);
         if ($validation == 'Ok') {
             //db kayıt
-             $this->integrationService->registerDB($data);
+            // $this->integrationService->registerDB($data);
+            $this->integrationService->registerDB($data);
             $customer_fullname = $this->integrationService->splitFullName(
                 $data['fullname']
             );
@@ -57,44 +58,64 @@ class ContactFormController extends Controller
             $subeId = $this->integrationService->crmGetClub($clubName);
             //token al
             $bearer_token = $this->integrationService->getBearerToken();
-           // crm ve mail kayıt
-            $this->integrationService->sendCrm($customer_name, $customer_lastname, $data["phone"], $data["email"], $etk_int, $subeId);
-            $this->integrationService->sendMail($data["fullname"], $data["email"], $kulup, $data["phone"], $subeId);
-            if ($etk) {
-                if (
-                    $this->integrationService->checkIfGetPermissionBefore(
-                        $bearer_token,
-                        $data['phone']
-                    )
-                ) {
-                    return response()->json([
-                        'message' => 'telefon kaydı zaten mevcut!',
-                    ]);
-                } else {
-                    //kayıtlı değilse sms gönderiyoruz. $dataId = sms durumu
-                    $dataId = $this->integrationService->sendSms(
-                        $bearer_token,
-                        $customer_name,
-                        $customer_lastname,
-                        $data['phone'],
-                        $data['email'],
-                        $etk
-                    );
-                    if ($dataId == false || $dataId == null) {
-                        return response()->json([
-                            'message' => 'sms hatası code  alınamıyor...',
-                        ]);
-                    } else {
-                        //cookie
-                        Cache::put('ivt_phone', $data['phone'], 120);
-                        Cache::put('ivt_bearer_token', $bearer_token, 120);
-                        Cache::put('dataId', $dataId, 120);
-                        return response()->json([
-                            'isVerificationRequired' => true,
-                        ]);
-                    }
-                }
-            }
+            // crm ve mail kayıt
+            $this->integrationService->sendCrm(
+                $customer_name,
+                $customer_lastname,
+                $data['phone'],
+                $data['email'],
+                $etk_int,
+                $subeId
+            );
+            $this->integrationService->sendMail(
+                $data['fullname'],
+                $data['email'],
+                $kulup,
+                $data['phone'],
+                $subeId
+            );
+
+            return response()->json([
+                'status' => 200,
+            ]);
+            // if ($etk) {
+            //     if (
+            //         $this->integrationService->checkIfGetPermissionBefore(
+            //             $bearer_token,
+            //             $data['phone']
+            //         )
+            //     ) {
+            //         return response()->json([
+            //             'message' => 'telefon kaydı zaten mevcut!',
+            //             'statusCode' => 300,
+            //         ]);
+            //     } else {
+            //         //kayıtlı değilse sms gönderiyoruz. $dataId = sms durumu
+            //         $dataId = $this->integrationService->sendSms(
+            //             $bearer_token,
+            //             $customer_name,
+            //             $customer_lastname,
+            //             $data['phone'],
+            //             $data['email'],
+            //             $etk
+            //         );
+            //         if ($dataId == false || $dataId == null) {
+            //             return response()->json([
+            //                 'message' => 'sms hatası code  alınamıyor...',
+            //                 'responseCode' => 400,
+            //             ]);
+            //         } else {
+            //             //cookie
+            //             Cache::put('ivt_phone', $data['phone'], 120);
+            //             Cache::put('ivt_bearer_token', $bearer_token, 120);
+            //             Cache::put('dataId', $dataId, 120);
+            //             return response()->json([
+            //                 'isVerificationRequired' => true,
+            //                 'responseCode' => 200,
+            //             ]);
+            //         }
+            //     }
+            // }
         }
     }
     public function validateSMS(Request $request)

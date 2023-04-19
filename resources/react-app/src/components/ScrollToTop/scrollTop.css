@@ -18,7 +18,7 @@
 }
 @media only screen and (min-width: 300px) and (max-width: 768px) {
   .scroll-top-button {
-    bottom: 20px;
+    bottom: 60px;
     right: 20px;
   }
 }

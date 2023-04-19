@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Card } from 'react-bootstrap'
 import '../../components/calltoaction/callToAction.css'
 import { SlArrowDown } from 'react-icons/sl'
@@ -13,7 +13,9 @@ import * as Yup from 'yup'
 function CallToAction({ menu, form, setForm }) {
   const [btnText, setbtnText] = useState()
   const [descpriction, setDescpriction] = useState()
+  const [showModal, setShowModal] = useState(false)
   const [loading, setIsLoading] = useState(false)
+  const [btnTitle, setBtnTitle] = useState('')
   const phoneRegExp = /^(05)([0-9]{2})s?([0-9]{3})s?([0-9]{2})s?([0-9]{2})$/
   const formik = useFormik({
     initialValues: {
@@ -42,36 +44,61 @@ function CallToAction({ menu, form, setForm }) {
 
     onSubmit: async (values, { resetForm }) => {
       setIsLoading(true)
-      const value = JSON.stringify(values, null, 2)
-      const result = await allService.joinUsPost(value)
-
-      if (result.data.isVerificationRequired === true) {
-        setIsLoading(false)
-        setShowModal(true)
-        resetForm()
-      } else if (result.data.isVerificationRequired === false) {
-        setDescpriction('Sms hatası ! Tekrar deneyiniz...')
-        setbtnText(true)
-        setIsLoading(false)
-        setShowModal(true)
-        resetForm()
-      } else if (result.data.message === 'telefon kaydı zaten mevcut!') {
-        setDescpriction('Teşekkürler, formunuz başarıyla gönderilmiştir.')
-        setbtnText(true)
-        setIsLoading(false)
-        setShowModal(true)
-        resetForm()
-      } else {
-        setbtnText(true)
-        setIsLoading(false)
-        setDescpriction('Formunuz şuanda gönderilemiyor.')
-        setShowModal(true)
-        resetForm()
+      try {
+        const result = await allService.joinUsPost(values)
+        // if (result.data.isVerificationRequired === true) {
+        //   setIsLoading(false)
+        //   setShowModal(true)
+        //   resetForm()
+        // } else if (result.data.isVerificationRequired === false) {
+        //   setDescpriction('Sms hatası ! Tekrar deneyiniz...')
+        //   setbtnText(true)
+        //   setIsLoading(false)
+        //   setShowModal(true)
+        //   resetForm()
+        // } else if (result.data.message === 'telefon kaydı zaten mevcut!') {
+        //   setDescpriction(
+        //     'Girdiğiniz telefon numarası ile sistemimize daha önce kayıt yapılmış. Girmiş olduğunuz bilgiler tekrardan tarafımıza iletildi, Teşekkürler.',
+        //   )
+        //   setbtnText(true)
+        //   setIsLoading(false)
+        //   setShowModal(true)
+        //   resetForm()
+        // } else if (result.data.message === 'sms hatası code  alınamıyor...') {
+        //   setbtnText(true)
+        //   setIsLoading(false)
+        //   setDescpriction(
+        //     `Sms doğrulama kodunuz çok fazla tekrardan dolayı gönderilemiyor, lütfen gün içinde tekrar deneyiniz.`,
+        //   )
+        //   setShowModal(true)
+        //   resetForm()
+        // } else {
+        //   setbtnText(true)
+        //   setIsLoading(false)
+        //   setDescpriction('Formunuz şuanda gönderilemiyor.')
+        //   setShowModal(true)
+        //   resetForm()
+        // }
+        if (result.status === 200) {
+          setDescpriction('Formunuz başarıyla gönderilmiştir.')
+          setbtnText(true)
+          setIsLoading(false)
+          setShowModal(true)
+          setBtnTitle('Teşekkürler')
+          resetForm()
+        } else if (result.status === 500) {
+          setDescpriction('Formunuz hata verdi.')
+          setbtnText(true)
+          setIsLoading(false)
+          setBtnTitle('Uyarı')
+          setShowModal(true)
+          resetForm()
+        }
+      } catch (error) {
+        console.log(error)
       }
     },
   })
-
-  const [showModal, setShowModal] = useState(false)
 
   const handleClose = () => setShowModal(false)
   const { data, isLoading, refetch } = useService('clubs', () =>
@@ -244,7 +271,10 @@ function CallToAction({ menu, form, setForm }) {
                       value={formik.values.kvkk}
                     />
 
-                    <p style={{ margin: '0px' }} className="text-white">
+                    <p
+                      style={{ margin: '0px', cursor: 'pointer' }}
+                      className="text-white "
+                    >
                       Tarafıma reklam, pazarlama ve tanıtım içerikli ticari
                       elektronik ileti gönderilmesine muvafakat ediyorum.
                     </p>
@@ -254,6 +284,7 @@ function CallToAction({ menu, form, setForm }) {
                   type="submit"
                   className="col-md-3 form-button"
                   variant="light"
+                  id="message"
                 >
                   {loading ? (
                     <Spinner animation="border" role="status">
@@ -396,7 +427,10 @@ function CallToAction({ menu, form, setForm }) {
                       value={formik.values.kvkk}
                     />
 
-                    <p style={{ margin: '0px' }} className="text-white">
+                    <p
+                      style={{ margin: '0px', cursor: 'pointer' }}
+                      className="text-white"
+                    >
                       Tarafıma reklam, pazarlama ve tanıtım içerikli ticari
                       elektronik ileti gönderilmesine muvafakat ediyorum.
                     </p>
@@ -406,6 +440,7 @@ function CallToAction({ menu, form, setForm }) {
                   type="submit"
                   className="col-md-6 form-button"
                   variant="light"
+                  id="message"
                 >
                   {loading ? (
                     <Spinner animation="border" role="status">
@@ -428,6 +463,7 @@ function CallToAction({ menu, form, setForm }) {
         handleClose={handleClose}
         descpriction={descpriction}
         btnText={btnText}
+        btnTitle={btnTitle}
       />
     </Card>
   )

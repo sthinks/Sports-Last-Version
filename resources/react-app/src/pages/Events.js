@@ -10,7 +10,7 @@ import allService from '../service/services'
 import Loading from '../components/loading/Loading'
 import Pagination from '../components/pagination/Pagination'
 import { ClubsCardEvent } from '../components/events/ClubsCardEvent'
-import middleImage from '../assets/images/events/bize-sportslu-derler.jpg'
+import { Helmet } from 'react-helmet'
 function Events() {
   let subtitle
   const [allData, setAllData] = useState()
@@ -88,6 +88,13 @@ function Events() {
   return (
     !isLoading && (
       <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Etkinlikler</title>
+          <link rel="canonical" href={`/etkinlikler`} />
+          <meta name="description" content="Etkinlikler" />
+          <meta name="description" content="Sports İnternational" />
+        </Helmet>
         <Modal
           className="events-modal"
           isOpen={modalIsOpen}

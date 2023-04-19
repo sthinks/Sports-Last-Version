@@ -13,7 +13,7 @@ import { useParams } from 'react-router-dom'
 import { useService } from '../service/useService.js'
 import allService from '../service/services.js'
 import Loading from '../components/loading/Loading'
-import { useNavigate } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 import Banner from '../components/banner/Banner'
 
 export const ClubsDetail = () => {
@@ -66,76 +66,88 @@ export const ClubsDetail = () => {
 
   return (
     !isLoading && (
-      <div>
-        <Banner image={data.image_banner} noBread={true} />
-        <div className="clubs-detail_text-container">
-          <div className="container">
-            <div className="clubs-detail_text">
-              <p
-                style={{ textAlign: 'justify' }}
-                dangerouslySetInnerHTML={{ __html: data.description }}
+      <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{data?.title}</title>
+          <link rel="canonical" href={`/kuluplerimiz/${data?.slug}`} />
+          <meta name="description" content={data?.title} />
+        </Helmet>
+        <div>
+          <Banner image={data.image_banner} noBread={true} />
+          <div className="clubs-detail_text-container">
+            <div className="container">
+              <div className="clubs-detail_text">
+                <p
+                  style={{ textAlign: 'justify' }}
+                  dangerouslySetInnerHTML={{ __html: data.description }}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="clubs-detail_carousel">
+            <div className="slide-icon">
+              <img
+                src={SlideIcon}
+                alt=""
+                style={{ width: '215px', height: 'auto' }}
               />
             </div>
+            {haveSlider === 1 && (
+              <Slider {...settings}>
+                {sliderImageArray?.map((image, i) => (
+                  <div key={i} className="clubs-detail_item">
+                    <img src={image} alt="" />
+                  </div>
+                ))}
+              </Slider>
+            )}
           </div>
-        </div>
 
-        <div className="clubs-detail_carousel">
-          <div className="slide-icon">
-            <img
-              src={SlideIcon}
-              alt=""
-              style={{ width: '215px', height: 'auto' }}
-            />
-          </div>
-          {haveSlider === 1 && (
-            <Slider {...settings}>
-              {sliderImageArray?.map((image, i) => (
-                <div key={i} className="clubs-detail_item">
-                  <img src={image} alt="" />
-                </div>
-              ))}
-            </Slider>
-          )}
-        </div>
-
-        <div className="clubs-detail_card-container">
-          <a
-            className="clubs-detail_card"
-            href="/sportslu-anlatiyor"
-            style={{ cursor: 'pointer' }}
-          >
-            <img
-              src={Sports}
-              style={{ width: '100%', height: 'auto' }}
-              alt=""
-            />
-            <div className="clubs-detail_card-icons">
-              <img src={SportsIcon} className="clubs-detail_card-icon" alt="" />
-              <img src={SportsArrow} alt="" />
-            </div>
-          </a>
-          <a
-            className="clubs-detail_card"
-            href="/etkinlikler"
-            style={{ cursor: 'pointer' }}
-          >
-            <div className="icons-container">
+          <div className="clubs-detail_card-container">
+            <a
+              className="clubs-detail_card"
+              href="/sportslu-anlatiyor"
+              style={{ cursor: 'pointer' }}
+            >
               <img
-                src={Card2Bg}
+                src={Sports}
                 style={{ width: '100%', height: 'auto' }}
                 alt=""
               />
               <div className="clubs-detail_card-icons">
-                <img src={Card2Icon} className="sports-events" alt="" />
+                <img
+                  src={SportsIcon}
+                  className="clubs-detail_card-icon"
+                  alt=""
+                />
+                <img src={SportsArrow} alt="" />
               </div>
-            </div>
-          </a>
+            </a>
+            <a
+              className="clubs-detail_card"
+              href="/etkinlikler"
+              style={{ cursor: 'pointer' }}
+            >
+              <div className="icons-container">
+                <img
+                  src={Card2Bg}
+                  style={{ width: '100%', height: 'auto' }}
+                  alt=""
+                />
+                <div className="clubs-detail_card-icons">
+                  <img src={Card2Icon} className="sports-events" alt="" />
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <Schedule marginB={true} />
+
+          <CallToAction menu={false} />
         </div>
-
-        <Schedule marginB={true} />
-
-        <CallToAction menu={false} />
-      </div>
+      </>
     )
   )
 }

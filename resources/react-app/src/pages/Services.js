@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import '../components/services/services.css'
 import CallToAction from '../components/calltoaction/CallToAction'
-import Banner from '../components/banner/Banner'
-import BannerImage from '../assets/images/banner/services.png'
 import BG from '../assets/images/contact/sol_bg.png'
 import Modal from 'react-modal'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { useService } from '../service/useService'
 import allService from '../service/services.js'
-import Masonry from 'react-masonry-css'
-import { CustomSlider } from '../components/slider/CustomSlider'
+import { Helmet } from 'react-helmet'
 const customStyles = {
   content: {
     top: '50%',
@@ -58,6 +55,13 @@ export const Services = () => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Hizmetlerimiz</title>
+        <link rel="canonical" href={`/hizmetlerimiz`} />
+        <meta name="description" content="Hizmetlerimiz" />
+        <meta name="description" content="Sports İnternational" />
+      </Helmet>
       <div>
         <Modal
           className="services-modal"

@@ -112,6 +112,7 @@
   margin-top: -30px;
 }
 .contact-right-side {
+  background-image: url('../../assets/images/contact/sol_bg.png');
   align-items: center;
   height: 350px;
   margin: 0px 0px 30px 0px;
@@ -309,4 +310,13 @@
   .contact-full-size-input {
     width: 570px;
   }
+}
+
+.contact-phone {
+  color: white;
+  text-decoration: none;
+}
+.contact-phone:hover {
+  color: rgb(200, 200, 200) !important;
+  text-decoration: none;
 }

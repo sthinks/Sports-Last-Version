@@ -5,7 +5,7 @@ import ContactForm from '../components/contact/contactForm/ContactForm'
 import '../components/contact/Contact.css'
 import { useService } from '../service/useService'
 import allService from '../service/services'
-
+import { Helmet } from 'react-helmet'
 function Contact() {
   const { data, isLoading, refetch } = useService('getclubs', () =>
     allService.fetchClubs(),
@@ -72,53 +72,66 @@ function Contact() {
   ]
 
   return (
-    <div className="">
-      <div className="container">
-        <div className="contact-container">
-          <div className="contact-content">
-            <div className="row">
-              <div className="d-flex justify-content-center">
-                <img className="contact-header-title" src={hereSports} alt="" />
-              </div>
-              <div className="">
-                <div className="d-flex flex-column mt-5 mb-5">
-                  {shopList.map((item) => (
-                    <AccordionShopList item={item} />
-                  ))}
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>İletişim</title>
+        <link rel="canonical" href={`/iletisim`} />
+        <meta name="description" content="İletisim" />
+        <meta name="description" content="Sports İnternational" />
+      </Helmet>
+      <div className="">
+        <div className="container">
+          <div className="contact-container">
+            <div className="contact-content">
+              <div className="row">
+                <div className="d-flex justify-content-center">
+                  <img
+                    className="contact-header-title"
+                    src={hereSports}
+                    alt=""
+                  />
                 </div>
-              </div>
+                <div className="">
+                  <div className="d-flex flex-column mt-5 mb-5">
+                    {shopList.map((item) => (
+                      <AccordionShopList item={item} />
+                    ))}
+                  </div>
+                </div>
 
-              <div className="d-flex justify-content-center">
-                <div className="contact-form-title">İLETİŞİM FORMU</div>
+                <div className="d-flex justify-content-center">
+                  <div className="contact-form-title">İLETİŞİM FORMU</div>
+                </div>
+                <ContactForm formClubList={data} loading={isLoading} />
               </div>
-              <ContactForm formClubList={data} loading={isLoading} />
             </div>
           </div>
         </div>
-      </div>
-      <div className="footer-contact-cards">
-        <div className="contact-left-side">
-          <div>
-            <p className="contact-footer-text">Öneri ve görüşleriniz için</p>
-            <p className="contact-footer-phone">444 75 35</p>
-            <p className="contact-footer-text">
-              Müşteri Hizmetleri numaramızdan
-              <br /> bize ulaşabilirsiniz.
-            </p>
+        <div className="footer-contact-cards">
+          <div className="contact-left-side">
+            <a className="contact-phone" href="tel:444 75 35">
+              <p className="contact-footer-text">Öneri ve görüşleriniz için</p>
+              <p className="contact-footer-phone">444 75 35</p>
+              <p className="contact-footer-text">
+                Müşteri Hizmetleri numaramızdan
+                <br /> bize ulaşabilirsiniz.
+              </p>
+            </a>
+          </div>
+          <div className="contact-right-side">
+            <a className="contact-phone" href="tel:444 75 35">
+              <p className="contact-footer-text">Öneri ve görüşleriniz için</p>
+              <p className="contact-footer-phone">444 75 35</p>
+              <p className="contact-footer-text">
+                Müşteri Hizmetleri numaramızdan
+                <br /> bize ulaşabilirsiniz.
+              </p>
+            </a>
           </div>
         </div>
-        <div className="contact-left-side">
-          <div>
-            <p className="contact-footer-text">Öneri ve görüşleriniz için</p>
-            <p className="contact-footer-phone">444 75 35</p>
-            <p className="contact-footer-text">
-              Müşteri Hizmetleri numaramızdan
-              <br /> bize ulaşabilirsiniz.
-            </p>
-          </div>
-        </div>
       </div>
-    </div>
+    </>
   )
 }
 export default Contact

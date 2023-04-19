@@ -56,8 +56,7 @@ function ContactForm({ formClubList, loading }) {
       setSubmitted(true)
       const value = JSON.stringify(values, null, 2)
       const result = await allService.contactPost(value)
-
-      if (result.data.message) {
+      if (result.data.message === 'işlem başarılı') {
         setSubmitted(false)
         setShowModal(true)
         resetForm()
@@ -260,12 +259,8 @@ function ContactForm({ formClubList, loading }) {
               <option style={{ color: 'black' }} selected>
                 Kulüp Seçiniz
               </option>
-              {formClubList?.map((item) => (
-                <option
-                  key={item.id}
-                  style={{ color: 'black' }}
-                  value={item.id}
-                >
+              {formClubList?.map((item, i) => (
+                <option key={i} style={{ color: 'black' }} value={item.id}>
                   {item.title}
                 </option>
               ))}
@@ -400,6 +395,7 @@ function ContactForm({ formClubList, loading }) {
               disabled={submitted}
               className="contact-form-submit-button"
               type="submit"
+              id="messageLong"
             >
               {submitted ? (
                 <Spinner animation="border" role="status">

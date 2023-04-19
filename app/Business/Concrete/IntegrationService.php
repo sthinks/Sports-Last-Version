@@ -159,31 +159,45 @@ class IntegrationService implements IntegrationServiceInterface
     // crm transfer
     public function sendCrm($name, $surname, $phone, $email, $etk, $subeid)
     {
-        $data = '{
+        $data =
+            '{
             "MethodName": "AdayOlustur",
             "MtdParams":
               {
-                  "SubeID": "'.$subeid.'",
-                  "MusteriAdi": "'.$name.'",
-                  "MusteriSoyadi": "'.$surname.'",
-                  "CepTel": "'.$phone.'",
-                  "Email": "'.$email.'",
-                  "ETKOnaylandi" "'.$etk.'"
+                  "SubeID": "' .
+            $subeid .
+            '",
+                  "MusteriAdi": "' .
+            $name .
+            '",
+                  "MusteriSoyadi": "' .
+            $surname .
+            '",
+                  "CepTel": "' .
+            $phone .
+            '",
+                  "Email": "' .
+            $email .
+            '",
+                  "ETKOnaylandi" "' .
+            $etk .
+            '"
               }
           }';
-        $host = "https://sportswebformapi.si.com.tr/api/MethodExecuter/ExecuteMethod";
+        $host =
+            'https://sportswebformapi.si.com.tr/api/MethodExecuter/ExecuteMethod';
         $curl = curl_init();
         curl_setopt_array($curl, [
-            CURLOPT_URL =>$host,
+            CURLOPT_URL => $host,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_TIMEOUT => 0,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_POST=> 1,
+            CURLOPT_POST => 1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS =>$data,
+            CURLOPT_POSTFIELDS => $data,
             CURLOPT_HTTPHEADER => [
                 'Authorization: Basic d2ViZm9ybWFwaUBzaS5jb20udHI6U3BvcnRzITU1Lg==',
                 'Content-Type: application/json',
@@ -243,7 +257,7 @@ class IntegrationService implements IntegrationServiceInterface
             'club_id' => $data['club_id'],
             'kvkk' => $data['kvkk'],
             'purpose_id' => 1,
-            'form_type'=>"hemen üye ol"
+            'form_type' => 'hemen üye ol',
         ]);
         $club_id = $data['club_id'];
         $db = DB::connection('mysql')->select(
@@ -257,50 +271,66 @@ class IntegrationService implements IntegrationServiceInterface
         $generator_id = $generator[0]->id;
         $yeni_yenileme_id = 1;
         $clubName = $db[0]->name;
-        //tesisi bulalım
+        // tesisi bulalım
         $db = DB::connection('sports_portal')->select(
             "SELECT * FROM tesisler WHERE code='$clubName'"
         );
         $tesis = $db[0];
         $tesis_adi_id = $tesis->id;
         $db_now = now();
-        //Transaction---
-        DB::beginTransaction();
-        //portal ac kaydettik
-        $ac_id = DB::connection('sports_portal')
-            ->table('ac')
-            ->insertGetId([
-                'tesis_adi' => $tesis_adi_id,
-                'musteri' => $data['fullname'],
-                'musteri_email' => $data['email'],
-                'musteri_telefon' => $data['phone'],
-                'musteri_alternatif_telefon' => $musteri_alternatif_telefon,
-                'yeni_yenileme' => $yeni_yenileme_id,
-                'talep_aciklamasi' => $talep_aciklamasi,
-                'created_at' => $db_now,
-                'updated_at' => $db_now,
+
+        //
+        //
+        $phne = $data['phone'];
+        $db = DB::connection('sports_portal')->select(
+            "SELECT * FROM ac WHERE musteri_telefon ='$phne'"
+        );
+
+            // kullanıcı telefonu varsa .
+            //Transaction---
+            DB::beginTransaction();
+            //portal ac kaydettik
+            $ac_id = DB::connection('sports_portal')
+                ->table('ac')
+                ->insertGetId([
+                    'tesis_adi' => $tesis_adi_id,
+                    'musteri' => $data['fullname'],
+                    'musteri_email' => $data['email'],
+                    'musteri_telefon' => $data['phone'],
+                    'musteri_alternatif_telefon' => $musteri_alternatif_telefon,
+                    'yeni_yenileme' => $yeni_yenileme_id,
+                    'talep_aciklamasi' => $talep_aciklamasi,
+                    'created_at' => $db_now,
+                    'updated_at' => $db_now,
+                    'status_id' => 8,
+                    'nereden_duydunuz' => 8,
+                ]);
+            //portal ac_status kayıt ettik
+            $ac_status_array = [
+                'ac_id' => $ac_id,
+                'user_id' => $generator_id,
                 'status_id' => 8,
-                'nereden_duydunuz' => 8,
-            ]);
-        //portal ac_status kayıt ettik
-        $ac_status_array = [
-            'ac_id' => $ac_id,
-            'user_id' => $generator_id,
-            'status_id' => 8,
-            'done_at' => $db_now,
-        ];
-        $ac_status_id = DB::connection('sports_portal')
-            ->table('ac_status')
-            ->insertGetId($ac_status_array);
-        //mail gönder
-        $sendThisMail = $this->sendThisMail($tesis_adi_id, $data['fullname']);
-        if ($ac_id != null && $ac_status_id != null && ($sendThisMail = true)) {
-            DB::commit();
-            return true;
-        } else {
-            DB::rollBack();
-            return false;
-        }
+                'done_at' => $db_now,
+            ];
+            $ac_status_id = DB::connection('sports_portal')
+                ->table('ac_status')
+                ->insertGetId($ac_status_array);
+            // mail gönder
+            $sendThisMail = $this->sendThisMail(
+                $tesis_adi_id,
+                $data['fullname']
+            );
+            if (
+                $ac_id != null &&
+                $ac_status_id != null &&
+                ($sendThisMail = true)
+            ) {
+                DB::commit();
+                return true;
+            } else {
+                DB::rollBack();
+                return false;
+            }
     }
     function sendThisMail($tesis_adi_id, $musteri)
     {
@@ -334,9 +364,7 @@ class IntegrationService implements IntegrationServiceInterface
             'phone' => $phone,
         ];
         if ($subeid == 4) {
-            $toList = [
-                'pinar.sarioglu@si.com.tr',
-            ];
+            $toList = ['pinar.sarioglu@si.com.tr'];
             $ccList = [
                 'Bulent.Yalman@si.com.tr',
                 'Reception1.Bilkent@si.com.tr',
@@ -765,7 +793,7 @@ class IntegrationService implements IntegrationServiceInterface
 
     function registerLongDB($data)
     {
-             ContactForm::Create([
+        ContactForm::Create([
             'fullname' => $data['fullname'],
             'phone' => $data['phone'],
             'email' => $data['email'],
@@ -776,7 +804,7 @@ class IntegrationService implements IntegrationServiceInterface
             'message' => $data['message'],
             'gender' => $data['gender'],
             'kvkk' => true,
-            'form_type'=>"bize ulaşın"
+            'form_type' => 'bize ulaşın',
         ]);
     }
 }
