@@ -62,6 +62,12 @@ export default function Schedule({ marginB }) {
       value: 'effectankara',
       slug: 14,
     },
+    {
+      id: 7,
+      name: 'ÇankayaVadi',
+      value: 'cankayavadi',
+      slug: 11111,
+    },
   ]
   const days = [
     {
@@ -136,6 +142,9 @@ export default function Schedule({ marginB }) {
       case 6:
         setData(allData?.effectankara)
         break
+      case 7:
+        setData(allData?.cankayavadi)
+        break
 
       default:
         break
@@ -175,10 +184,10 @@ export default function Schedule({ marginB }) {
       className={
         dataSize
           ? [
-              marginB
-                ? 'schedule-background-1200 margin-b'
-                : 'schedule-background-1200',
-            ]
+            marginB
+              ? 'schedule-background-1200 margin-b'
+              : 'schedule-background-1200',
+          ]
           : [marginB ? 'schedule-background margin-b' : 'schedule-background']
       }
     >

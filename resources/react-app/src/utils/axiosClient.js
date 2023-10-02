@@ -1,10 +1,10 @@
-import axios from 'axios'
+import axios from "axios";
 const AxiosClient = axios.create({
-  baseURL: `http://127.0.0.1:90/api/`,
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  },
-})
+    baseURL: `https://www.sportsinternational.com.tr/api/`,
+    headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+    },
+});
 
-export default AxiosClient
+export default AxiosClient;
