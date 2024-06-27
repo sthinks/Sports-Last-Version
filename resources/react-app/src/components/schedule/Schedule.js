@@ -12,7 +12,7 @@ import axios from "axios";
 export default function Schedule({ marginB }) {
     const [data, setData] = useState();
     const [allData, setAllData] = useState();
-    const [tab, setTab] = useState(1);
+    const [tab, setTab] = useState(2);
     const [list, setList] = useState([]);
     const [dataSlug, setDataSlug] = useState(11190);
     const [activePlace, activeSetPlace] = useState(1);
@@ -32,12 +32,7 @@ export default function Schedule({ marginB }) {
             value: "bilkent",
             slug: 11190,
         },
-        {
-            id: 2,
-            name: "Ataköy",
-            value: "atakoy",
-            slug: 11192,
-        },
+
         {
             id: 3,
             name: "Kadıköy",
@@ -71,31 +66,31 @@ export default function Schedule({ marginB }) {
     ];
     const days = [
         {
-            id: 1,
+            id: 2,
             title: "Pazartesi",
         },
         {
-            id: 2,
+            id: 3,
             title: "Salı",
         },
         {
-            id: 3,
+            id: 4,
             title: "Çarşamba",
         },
         {
-            id: 4,
+            id: 5,
             title: "Perşembe",
         },
         {
-            id: 5,
+            id: 6,
             title: "Cuma",
         },
         {
-            id: 6,
+            id: 7,
             title: "Cumartesi",
         },
         {
-            id: 7,
+            id: 1,
             title: "Pazar",
         },
         {
@@ -107,7 +102,7 @@ export default function Schedule({ marginB }) {
     const handlerSchedule = async () => {
         await axios(
             "https://www.sportsinternational.com.tr/api/lesson-program"
-        ).then((res) => setAllData());
+        ).then((res) => setAllData(res.data));
     };
     useEffect(() => {
         handlerSchedule();
@@ -126,9 +121,6 @@ export default function Schedule({ marginB }) {
         switch (cityValue) {
             case 1:
                 setData(allData?.bilkent);
-                break;
-            case 2:
-                setData(allData?.atakoy);
                 break;
             case 3:
                 setData(allData?.kadikoy);
@@ -271,7 +263,7 @@ export default function Schedule({ marginB }) {
                                 <li>{item.hourRange}</li>
                                 <li>{item.programName}</li>
                                 <li>
-                                    {item.description}
+                                    {item.trainerName}
                                     <span className="schedule-cancel-list-item text-danger">
                                         {item.isCancelled ? "(İPTAL)" : ""}
                                     </span>

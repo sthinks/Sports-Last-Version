@@ -1,0 +1,32 @@
+.form-title-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-container {
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-background-text {
+    position: absolute;
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 10%;
+    color: gray;
+    opacity: 0.1;
+}
+.form-front-text {
+    position: relative;
+    font-size: 3rem;
+    color: #0080c8;
+    font-weight: 900;
+    top: 1.5rem;
+}
+.form-arrow {
+    font-size: 6rem;
+    color: #0080c8;
+    font-weight: 900;
+}

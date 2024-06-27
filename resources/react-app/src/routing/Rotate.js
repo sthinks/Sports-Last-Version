@@ -14,6 +14,8 @@ import SportsTalk from "../pages/SportsTalk";
 import SportsTalkDetail from "../pages/SportsTalkDetail";
 import { Clubs } from "../pages/Clubs";
 import { ClubsDetail } from "../pages/ClubsDetail";
+import ClubsProgramDetails from "../pages/ClubsProgramDetails";
+
 import { FiChevronUp } from "react-icons/fi";
 import "../components/ScrollToTop/scrollTop.css";
 import "../components/mobilPhoneBottom/mobilphone.css";
@@ -22,10 +24,10 @@ import NotFound from "../components/notfound/NotFound";
 import Common from "../pages/Common";
 import SportsAdvantage from "../pages/SportsAdvantage";
 import { MdPhoneEnabled } from "react-icons/md";
+import SportsAdvantageDetail from "../pages/SportsAdvantageDetail";
 
 function Rotate() {
     const [visible, setVisible] = useState(false);
-    const [mobilPhone, setMobilPhone] = useState(false);
     const [form, setForm] = useState(false);
 
     const scrollToTop = () => {
@@ -45,13 +47,6 @@ function Rotate() {
             }
         });
     }, []);
-    useEffect(() => {
-        if (window.screen.width < 768) {
-            setMobilPhone(true);
-        } else {
-            setMobilPhone(false);
-        }
-    }, [window.screen]);
 
     return (
         <>
@@ -66,6 +61,11 @@ function Rotate() {
                 <Route path="/kisaca-biz" element={<BriefIntro />} />
                 <Route path="/kuluplerimiz" element={<Clubs />} />
                 <Route path="/kuluplerimiz/:slug" element={<ClubsDetail />} />
+                <Route
+                    path="/kuluplerimiz/:slug/:slug"
+                    element={<ClubsProgramDetails />}
+                />
+
                 <Route path="/hizmetlerimiz" element={<Services />} />
                 <Route path="/etkinlikler" element={<Events />} />
                 <Route path="/iletisim" element={<Contact />} />
@@ -74,6 +74,10 @@ function Rotate() {
                 <Route path="/genel-mudur-mesaji" element={<GMmessage />} />
                 <Route path="/sportslu-anlatiyor" element={<SportsTalk />} />
                 <Route path="/sportsclub" element={<SportsAdvantage />} />
+                <Route
+                    path="/sportsclub/:slug"
+                    element={<SportsAdvantageDetail />}
+                />
                 <Route path="/kurumsal/:slug" element={<Common />} />
                 <Route
                     path="/sportslu-anlatiyor/:slug"
