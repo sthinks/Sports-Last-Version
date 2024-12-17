@@ -287,10 +287,13 @@ export default function Schedule({ marginB }) {
 }
 
 function generateDaySchedule(schedule, day) {
+    // Kaydırma işlemi: Gelen verideki pazar günü 1 olduğundan, pazartesiyi 2 olarak kabul etmek için kaydırma yapıyoruz.
+    const adjustedDay = (day % 7) + 1; // Kaydırma işlemi
+
     return (
         <div className="shedule-list-item">
             {schedule?.map((item, i) => {
-                if (item.day === day) {
+                if (item.day === adjustedDay) {
                     return (
                         <div key={i} className="total-item">
                             <div className="programName">
