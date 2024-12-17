@@ -293,12 +293,18 @@ function generateDaySchedule(schedule, day) {
                 if (item.day === day) {
                     return (
                         <div key={i} className="total-item">
+                            <div className="programName">
+                                {item.trainerName}
+                            </div>
                             <div className="hour-range">{item.hourRange}</div>
                             <div className="programName">
                                 {item.programName}
                             </div>
                             <div className="descriptionName">
                                 {item.description}
+                            </div>
+                            <div className="hour-range">
+                                {item.locationName}
                             </div>
                         </div>
                     );
